@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PC Status</string>
+    <string name="txtProyecto">PC Status</string>
+    <string name="btnIrLogin">Iniciar Sesion</string>
+    <string name="btnIrRegistro">Registrarse</string>
+    <string name="btnRegistrar">Guardar</string>
+    <string name="btnLoguear">Ingresar</string>
+    <string name="edtLoginEmail">Usuario (Email)</string>
+    <string name="edtLoginPassword">Contraseña</string>
+    <string name="edtRegistroNombre">Nombre</string>
+    <string name="edtRegistroAPaterno">Apellido Paterno</string>
+    <string name="edtRegistroAMaterno">Apellido Materno</string>
+    <string name="edtRegistroEmail">Email</string>
+    <string name="edtRegistroPassword">Contraseña</string>
+    <string name="txtRegistroAux">No tienes una cuenta\n\n Registrate ¡¡ AQUI !!</string>
+</resources>
