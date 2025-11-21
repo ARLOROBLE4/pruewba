@@ -3,7 +3,7 @@
     <string name="txtProyecto">PC Status</string>
     <string name="btnIrLogin">Iniciar Sesion</string>
     <string name="btnIrRegistro">Registrarse</string>
-    <string name="btnRegistrar">Guardar</string>
+    <string name="btnRegistrar">Crear cuenta</string>
     <string name="btnLoguear">Ingresar</string>
     <string name="btnBvnInicio">Inicio</string>
     <string name="btnBvnPerfil">Mi Perfil</string>
@@ -29,5 +29,6 @@
     <string name="txtCltEstado">Estado del Equipo</string>
     <string name="txtCltDetalles">Detalles del equipo</string>
     <string name="txtCltCosto">Costo estimado</string>
+    <string name="txtCrearCuenta">¿No tienes una cuenta? Crea una dando clic <u>aquí.</u></string>
 
 </resources>
