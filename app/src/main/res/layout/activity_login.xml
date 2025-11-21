@@ -52,6 +52,7 @@
                 android:ems="10"
                 android:hint="@string/edtLoginPassword"
                 android:inputType="text"
+                android:password="true"
                 app:layout_constraintEnd_toEndOf="@+id/edtLoginEmail"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/edtLoginEmail"
