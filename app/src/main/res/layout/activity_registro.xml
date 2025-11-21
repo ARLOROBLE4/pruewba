@@ -16,72 +16,108 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtRegistroNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="101dp"
-        android:ems="10"
-        android:hint="@string/edtRegistroNombre"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="204dp" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="351dp"
+        android:layout_height="519dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-    <EditText
-        android:id="@+id/edtRegistroAPaterno"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="@string/edtRegistroAMaterno"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRegistroNombre" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edtRegistroAMaterno"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/edtRegistroAPaterno"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRegistroAPaterno" />
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/colorBotones"
+                android:text="@string/btnRegistrar"
+                app:cornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="@+id/checkBox"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
-    <EditText
-        android:id="@+id/edtRegistroEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="23dp"
-        android:ems="10"
-        android:hint="@string/edtRegistroEmail"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRegistroAMaterno" />
+            <EditText
+                android:id="@+id/edtRegistroPassword"
+                android:layout_width="318dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/edtRegistroPassword"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/edtRegistroEmail"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/edtRegistroEmail"
+                app:layout_constraintTop_toBottomOf="@+id/edtRegistroEmail" />
 
-    <EditText
-        android:id="@+id/edtRegistroPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/edtRegistroPassword"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRegistroEmail" />
+            <EditText
+                android:id="@+id/edtRegistroEmail"
+                android:layout_width="318dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/edtRegistroEmail"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/edtRegistroAMaterno"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edtRegistroAMaterno"
+                app:layout_constraintTop_toBottomOf="@+id/edtRegistroAMaterno" />
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/btnRegistrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRegistroPassword" />
+            <EditText
+                android:id="@+id/edtRegistroAMaterno"
+                android:layout_width="318dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/edtRegistroAPaterno"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/edtRegistroNombre"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edtRegistroNombre"
+                app:layout_constraintTop_toBottomOf="@+id/edtRegistroNombre" />
+
+            <EditText
+                android:id="@+id/edtRegistroAPaterno"
+                android:layout_width="318dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/edtRegistroAMaterno"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/edtRegistroPassword"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edtRegistroPassword"
+                app:layout_constraintTop_toBottomOf="@+id/edtRegistroPassword" />
+
+            <EditText
+                android:id="@+id/edtRegistroNombre"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="44dp"
+                android:ems="10"
+                android:hint="@string/edtRegistroNombre"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="318dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:text="Acepto los términos y condiciónes y vendo mi alma al diablo."
+                app:layout_constraintEnd_toEndOf="@+id/edtRegistroAPaterno"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edtRegistroAPaterno"
+                app:layout_constraintTop_toBottomOf="@+id/edtRegistroAPaterno" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
