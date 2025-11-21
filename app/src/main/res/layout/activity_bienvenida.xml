@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     android:background="#1E1E1E">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="477dp"
-        android:layout_height="87dp"
-        android:background="#000000"
-        android:src="@drawable/logopcstatus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/txtBienvenida"
         android:layout_width="wrap_content"
@@ -27,7 +17,7 @@
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoBvn" />
 
     <Button
         android:id="@+id/btnBvnConsulta"
@@ -85,19 +75,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/txtBienvenida"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="305dp"
-        android:layout_height="208dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="53dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnPerfil"
-        app:srcCompat="@drawable/logoapp" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoBvn" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="360dp"
@@ -165,5 +143,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imgLogoBvn"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <VideoView
+        android:id="@+id/vdvBvnEmpresa"
+        android:layout_width="339dp"
+        android:layout_height="218dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnConsulta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

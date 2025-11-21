@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     android:background="#1E1E1E">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="477dp"
-        android:layout_height="87dp"
-        android:background="#000000"
-        android:src="@drawable/logopcstatus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnCltInicio"
         android:layout_width="wrap_content"
@@ -28,7 +18,7 @@
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/btnCltConsulta"
@@ -42,7 +32,7 @@
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintStart_toEndOf="@+id/btnCltInicio"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/btnCltPerfil"
@@ -58,7 +48,7 @@
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCltConsulta"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="386dp"
@@ -291,5 +281,14 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
