@@ -36,7 +36,6 @@ class accessModel {
                 }
             })
     }
-    // --- Lógica de REGISTRAR USUARIO (Adaptada a 5 parámetros para tu script PHP) ---
     fun registrarUsuario(
         nombreUsuario: String,
         apellidoPaterno: String,
@@ -54,7 +53,6 @@ class accessModel {
             password = password
         ).enqueue(object : Callback<List<clsDatosRespuesta>> {
             override fun onResponse(call: Call<List<clsDatosRespuesta>>, response: Response<List<clsDatosRespuesta>>) {
-                // ... (Misma lógica de respuesta) ...
                 if (response.isSuccessful) {
                     val datos = response.body()
                     val success = datos?.firstOrNull()?.Estado == "true" // El PHP devuelve "true" en minúscula

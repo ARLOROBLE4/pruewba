@@ -21,17 +21,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // 1. Enlazar botones
         val btnIrLogin = findViewById<Button>(R.id.btnIrLogin)
         val btnIrRegistro = findViewById<Button>(R.id.btnirRegistro)
 
-        // 2. Click para ir a Login
         btnIrLogin.setOnClickListener {
             val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
 
-        // 3. Click para ir a Registro
         btnIrRegistro.setOnClickListener {
             val intent = Intent(this, registro::class.java)
             startActivity(intent)

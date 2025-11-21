@@ -10,7 +10,6 @@ interface registroContract {
     interface Presenter {
         fun attachView(view: View)
         fun detachView()
-        // *** SE AGREGAN LOS NUEVOS CAMPOS ***
         fun handleRegistrationButtonClick(
             nombreUsuario: String,
             apellidoPaterno: String,

@@ -15,10 +15,6 @@ class registroPresenter(private val model: accessModel) : registroContract.Prese
         this.view = null
     }
 
-    /**
-     * Maneja el evento de clic en el botón de registro.
-     * Recibe todos los campos del formulario de la Vista y los pasa al Modelo.
-     */
     override fun handleRegistrationButtonClick(
         nombreUsuario: String,
         apellidoPaterno: String,
@@ -31,7 +27,6 @@ class registroPresenter(private val model: accessModel) : registroContract.Prese
             return
         }
 
-        // Llamada al Modelo para ejecutar la API de registro
         model.registrarUsuario(
             nombreUsuario,
             apellidoPaterno,
@@ -39,11 +34,9 @@ class registroPresenter(private val model: accessModel) : registroContract.Prese
             email,
             password
         ) { isSuccess, message ->
-
-            // El Presenter maneja la respuesta y notifica a la Vista
             if (isSuccess) {
                 view?.showRegistrationSuccess(message)
-                view?.closeScreen() // Cierra la Activity de registro al tener éxito
+                view?.closeScreen()
             } else {
                 view?.showRegistrationError(message)
             }

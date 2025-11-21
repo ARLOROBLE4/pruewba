@@ -8,6 +8,5 @@ class bienvenida: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bienvenida)
-        // Lógica de bienvenida aquí
     }
 }

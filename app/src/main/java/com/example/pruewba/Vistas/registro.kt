@@ -21,9 +21,8 @@ class registro: AppCompatActivity(), registroContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro) // Usando tu layout activity_registro.xml
+        setContentView(R.layout.activity_registro)
 
-        // 1. Enlazar Views con los IDs de activity_registro.xml
         etNombre = findViewById(R.id.edtRegistroNombre)
         etAPaterno = findViewById(R.id.edtRegistroAPaterno)
         etAMaterno = findViewById(R.id.edtRegistroAMaterno)
@@ -31,10 +30,9 @@ class registro: AppCompatActivity(), registroContract.View {
         etPassword = findViewById(R.id.edtRegistroPassword)
         btnRegistrar = findViewById(R.id.btnRegistrar)
 
-        // 2. Inicializar Presenter
         presenter = registroPresenter(accessModel())
         presenter.attachView(this)
-        // 3. Manejar Click del botón Registrar
+
         btnRegistrar.setOnClickListener {
             val nombre = etNombre.text.toString()
             val aPaterno = etAPaterno.text.toString()

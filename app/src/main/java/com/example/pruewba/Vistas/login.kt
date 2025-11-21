@@ -14,22 +14,20 @@ import com.example.pruewba.R
 class login : AppCompatActivity(), loginContract.View {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
-    private lateinit var btnAcceder: Button // Corregido el nombre si usas R.id.btnLoguear
+    private lateinit var btnAcceder: Button
     private lateinit var presenter: loginContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login) // Usando tu layout activity_login.xml
+        setContentView(R.layout.activity_login)
 
-        // 1. Enlazar Views
         etEmail = findViewById(R.id.edtLoginEmail)
         etPassword = findViewById(R.id.edtLoginPassword)
-        btnAcceder = findViewById(R.id.btnLoguear) // Usando el ID de activity_login.xml
+        btnAcceder = findViewById(R.id.btnLoguear)
 
-        // 2. Inicializar Presenter
         presenter = loginPresenter(accessModel())
         presenter.attachView(this)
-        // 3. Manejar Click del botón Acceder
+
         btnAcceder.setOnClickListener {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
@@ -50,10 +48,9 @@ class login : AppCompatActivity(), loginContract.View {
     }
 
     override fun navigateToMainScreen() {
-        // Navegar a la pantalla de bienvenida (activity_bienvenida) como solicitaste
         val intent = Intent(this, bienvenida::class.java)
         startActivity(intent)
-        finish() // Cierra la pantalla de login
+        finish()
 
     }
 }
