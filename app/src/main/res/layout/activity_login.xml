@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1E1E1E">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="179dp"
-        android:layout_height="107dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        android:background="#000000"
+        android:src="@drawable/logopcstatus"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logopcstatus" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtLoginEmail"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="63dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/edtLoginEmail"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        tools:layout_editor_absoluteY="186dp" />
 
     <EditText
         android:id="@+id/edtLoginPassword"
@@ -34,8 +34,8 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="36dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/edtLoginPassword"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
 
