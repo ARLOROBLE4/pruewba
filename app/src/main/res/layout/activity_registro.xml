@@ -7,7 +7,7 @@
     android:background="#1E1E1E">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgRegistroLogo"
         android:layout_width="477dp"
         android:layout_height="87dp"
         android:background="#000000"
@@ -21,9 +21,9 @@
         android:layout_height="519dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintEnd_toEndOf="@+id/imgRegistroLogo"
+        app:layout_constraintStart_toStartOf="@+id/imgRegistroLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -9,7 +9,7 @@
     tools:context=".Vistas.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgMainlogo"
         android:layout_width="477dp"
         android:layout_height="87dp"
         android:background="#000000"
@@ -27,9 +27,9 @@
         android:text="@string/btnIrLogin"
         android:textSize="20sp"
         app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintEnd_toEndOf="@+id/imgMainEmpresa"
+        app:layout_constraintStart_toStartOf="@+id/imgMainEmpresa"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainEmpresa" />
 
     <Button
         android:id="@+id/btnirRegistro"
@@ -46,14 +46,14 @@
         app:layout_constraintTop_toBottomOf="@+id/btnIrLogin" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imgMainEmpresa"
         android:layout_width="198dp"
         android:layout_height="188dp"
         android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imgMainlogo"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imgMainlogo"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
         app:srcCompat="@drawable/logo_empresa_pcextreme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

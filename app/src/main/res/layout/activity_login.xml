@@ -7,7 +7,7 @@
     android:background="#1E1E1E">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgLoginLogo"
         android:layout_width="477dp"
         android:layout_height="87dp"
         android:background="#000000"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/imgLoginLogo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,13 +34,15 @@
                 android:id="@+id/edtLoginEmail"
                 android:layout_width="260dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="36dp"
                 android:ems="10"
                 android:hint="@string/edtLoginEmail"
                 android:inputType="text"
-                app:layout_constraintEnd_toEndOf="@+id/imvLogin"
-                app:layout_constraintStart_toStartOf="@+id/imvLogin"
-                app:layout_constraintTop_toBottomOf="@+id/imvLogin" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgLoginIcono" />
 
             <EditText
                 android:id="@+id/edtLoginPassword"
@@ -67,17 +69,6 @@
                 app:layout_constraintStart_toStartOf="@+id/edtLoginPassword"
                 app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
 
-            <ImageView
-                android:id="@+id/imvLogin"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/iniciarsesion" />
-
             <TextView
                 android:id="@+id/txtCrearCuenta"
                 android:layout_width="wrap_content"
@@ -88,6 +79,18 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgLoginIcono"
+                android:layout_width="161dp"
+                android:layout_height="182dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="84dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/login" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

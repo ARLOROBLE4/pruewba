@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E">
+
+    <Button
+        android:id="@+id/btnCltConsulta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnConsulta"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btnCltInicio2"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo2" />
+
+    <ImageView
+        android:id="@+id/imgCltLogo2"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        android:background="#040404"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopcstatus" />
+
+    <Button
+        android:id="@+id/btnCltInicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnInicio"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo2" />
+
+    <Button
+        android:id="@+id/btnCltPerfil2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/btnBvnPerfil"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo2" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="375dp"
+        android:layout_height="541dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCltConsulta2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="155dp"
+                android:layout_height="142dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="109dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtConInfo"
+                app:srcCompat="@drawable/imgconsulta" />
+
+            <TextView
+                android:id="@+id/txtConIndicacion"
+                android:layout_width="259dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="58dp"
+                android:text="Ingresa el numero de folio de tu ticket:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/txtConInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="17dp"
+                android:text="Consulta el estado de tu equipo"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edtConNumFolio"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="198dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Folio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtConIndicacion" />
+
+            <Button
+                android:id="@+id/btnConBuscarFolio"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginBottom="199dp"
+                android:text="Buscar"
+                android:textColor="@color/texto"
+                android:textSize="16dp"
+                app:backgroundTint="@color/colorBotones"
+                app:cornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edtConNumFolio" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
