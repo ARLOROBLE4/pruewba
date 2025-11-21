@@ -11,13 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
         android:text="@string/txtBienvenida"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogoBvn" />
+        tools:layout_editor_absoluteY="94dp" />
 
     <Button
         android:id="@+id/btnBvnConsulta"
@@ -69,13 +68,12 @@
         android:layout_width="182dp"
         android:layout_height="38dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
         android:text=" "
         android:textColor="@color/texto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/txtBienvenida"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogoBvn" />
+        tools:layout_editor_absoluteY="103dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="360dp"
@@ -144,15 +142,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imgLogoBvn"
-        android:layout_width="477dp"
-        android:layout_height="87dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <VideoView
         android:id="@+id/vdvBvnEmpresa"
         android:layout_width="339dp"
@@ -161,5 +150,14 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBvnConsulta" />
+
+    <ImageView
+        android:id="@+id/imgBvnLogo"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopcstatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
