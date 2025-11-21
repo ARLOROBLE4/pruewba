@@ -5,12 +5,19 @@
     <string name="btnIrRegistro">Registrarse</string>
     <string name="btnRegistrar">Guardar</string>
     <string name="btnLoguear">Ingresar</string>
+    <string name="btnBvnInicio">Inicio</string>
+    <string name="btnBvnPerfil">Mi Perfil</string>
+    <string name="btnBvnConsulta">Consulta Equipo</string>
+    <string name="btnBvnEncuentranos">Encuentranos</string>
     <string name="edtLoginEmail">Usuario (Email)</string>
     <string name="edtLoginPassword">Contraseña</string>
     <string name="edtRegistroNombre">Nombre</string>
     <string name="edtRegistroAPaterno">Apellido Paterno</string>
     <string name="edtRegistroAMaterno">Apellido Materno</string>
     <string name="edtRegistroEmail">Email</string>
+    <string name="txtBienvenida">Bienvenido</string>
     <string name="edtRegistroPassword">Contraseña</string>
     <string name="txtRegistroAux">No tienes una cuenta\n\n Registrate ¡¡ AQUI !!</string>
+    <string name="txtBnvPublicidad">PC EXTREME TE OFRECE</string>
+    <string name="txtBnvInfoPubli">Mantenimiento premium con materiales de la mejor calidad, cotizaciones y servicios de ensambles\nVisita nuestro establecimiento</string>
 </resources>
