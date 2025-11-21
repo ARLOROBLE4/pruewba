@@ -9,9 +9,10 @@ class accessModel {
     private lateinit var apiService: ifaceApiService
 
     init {
-        // Asegúrate de usar la URL base correcta para tu API
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.0.102/appMovil/PCStatus/Api/") // Reemplazar con la URL base de tu servidor
+            //.baseUrl("http://192.168.0.102/appMovil/PCStatus/Api/")
+            .baseUrl("http://10.53.204.59/appMovil/PCStatus/Api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         apiService = retrofit.create(ifaceApiService::class.java)
