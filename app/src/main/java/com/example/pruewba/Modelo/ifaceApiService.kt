@@ -7,7 +7,7 @@ import retrofit2.http.POST
 interface ifaceApiService {
 
     @FormUrlEncoded
-    @POST("apiAcceso.php")
+    @POST("accesoApi.php")
     fun registrarUsuario(
         @Field("action") action: String,
         @Field("nombreUsuario") nombreusuario: String,
@@ -18,7 +18,7 @@ interface ifaceApiService {
     ): Call<List<clsDatosRespuesta>>
 
     @FormUrlEncoded
-    @POST("apiAcceso.php")
+    @POST("accesoApi.php")
     fun iniciarSesion(
         @Field("action") action: String,
         @Field("email") email: String,

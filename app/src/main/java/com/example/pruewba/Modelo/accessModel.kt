@@ -12,7 +12,8 @@ class accessModel {
 
         val retrofit = Retrofit.Builder()
             //.baseUrl("http://192.168.0.102/appMovil/PCStatus/Api/")
-            .baseUrl("http://10.53.204.59/appMovil/PCStatus/Api/")
+            //.baseUrl("http://192.168.0.110/appMovil/PCStatus/Api/")
+            .baseUrl("https://mauro.grupoctic.com/appMovil/PCStatus/archivoApi/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         apiService = retrofit.create(ifaceApiService::class.java)

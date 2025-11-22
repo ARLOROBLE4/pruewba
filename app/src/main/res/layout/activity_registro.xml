@@ -37,6 +37,7 @@
                 android:backgroundTint="@color/colorBotones"
                 android:text="@string/btnRegistrar"
                 app:cornerRadius="8dp"
+                android:textColor="@color/texto"
                 app:layout_constraintEnd_toEndOf="@+id/checkBox"
                 app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="@+id/checkBox"

@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:backgroundTint="@color/colorBotones"
+                android:textColor="@color/texto"
                 android:text="@string/btnLoguear"
                 app:cornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edtLoginPassword"
