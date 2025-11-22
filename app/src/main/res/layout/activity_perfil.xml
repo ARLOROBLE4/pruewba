@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/logopcstatus" />
 
     <Button
-        android:id="@+id/btnCltInicio3"
+        android:id="@+id/btnPrfInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgCltLogo3" />
 
     <Button
-        android:id="@+id/btnCltConsulta3"
+        android:id="@+id/btnPrfConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -41,11 +41,11 @@
         android:textSize="16dp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
-        app:layout_constraintStart_toEndOf="@+id/btnCltInicio3"
+        app:layout_constraintStart_toEndOf="@+id/btnPrfInicio"
         app:layout_constraintTop_toBottomOf="@+id/imgCltLogo3" />
 
     <Button
-        android:id="@+id/btnCltPerfil3"
+        android:id="@+id/btnPrfPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -68,7 +68,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCltInicio3">
+        app:layout_constraintTop_toBottomOf="@+id/btnPrfInicio">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
