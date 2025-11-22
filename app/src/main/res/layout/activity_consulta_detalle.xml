@@ -65,7 +65,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="387dp"
-            android:layout_height="747dp">
+            android:layout_height="747dp"
+            android:background="#FFFFFFFF">
 
             <ImageView
                 android:id="@+id/imgCltEquipo"
