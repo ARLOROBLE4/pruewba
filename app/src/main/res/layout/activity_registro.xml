@@ -27,7 +27,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF">
 
             <Button
                 android:id="@+id/btnRegistrar"
@@ -36,8 +37,8 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/colorBotones"
                 android:text="@string/btnRegistrar"
-                app:cornerRadius="8dp"
                 android:textColor="@color/texto"
+                app:cornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/checkBox"
                 app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="@+id/checkBox"
@@ -52,6 +53,8 @@
                 android:hint="@string/edtRegistroPassword"
                 android:inputType="text"
                 android:password="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtRegistroEmail" />
@@ -64,6 +67,8 @@
                 android:ems="10"
                 android:hint="@string/edtRegistroEmail"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtRegistroAPaterno" />
@@ -76,6 +81,8 @@
                 android:ems="10"
                 android:hint="@string/edtRegistroAPaterno"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
                 app:layout_constraintEnd_toEndOf="@+id/edtRegistroNombre"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/edtRegistroNombre"
@@ -89,6 +96,8 @@
                 android:ems="10"
                 android:hint="@string/edtRegistroAMaterno"
                 android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtRegistroAMaterno" />
@@ -99,6 +108,8 @@
                 android:layout_height="44dp"
                 android:layout_marginTop="44dp"
                 android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
                 android:hint="@string/edtRegistroNombre"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -113,6 +124,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="17dp"
+                android:textColor="@color/black"
                 android:text="Acepto los términos y condiciónes y vendo mi alma al diablo."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
