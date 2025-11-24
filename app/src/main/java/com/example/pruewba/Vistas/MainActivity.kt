@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.pruewba.Pruebas.TestApp
 import com.example.pruewba.R
 
 
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        TestApp.ejecutarTodasLasPruebas()
 
         val btnIrLogin = findViewById<Button>(R.id.btnIrLogin)
         val btnIrRegistro = findViewById<Button>(R.id.btnirRegistro)
