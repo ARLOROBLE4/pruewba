@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PC Status</string>
     <string name="txtProyecto">PC Status</string>
-    <string name="btnIrLogin">Iniciar Sesion</string>
+    <string name="btnVerMas">Ver Mas</string>
     <string name="btnBvnChat">Chat</string>
     <string name="btnRegistrar">Crear cuenta</string>
     <string name="btnLoguear">Ingresar</string>
@@ -17,14 +17,14 @@
     <string name="edtRegistroEmail">Email</string>
     <string name="btnSrvAgenda">Agendar Cita</string>
     <string name="edtRegistroPassword">Contraseña</string>
-    <string name="txtRegistroAux">No tienes una cuenta\n\n Registrate ¡¡ AQUI !!</string>
+
     <string name="txtBnvPublicidad">PC EXTREME TE OFRECE</string>
     <string name="txtBnvInfoPubli">Mantenimiento premium con materiales de la mejor calidad, cotizaciones y servicios de ensambles\nVisita nuestro establecimiento</string>
     //VENTANA DE CONSULTA-DETALLE
-    <string name="txtCltNumSerie">Num. Serie</string>
-    <string name="txtCltModelo">Modelo</string>
-    <string name="txtCltMarca">Marca</string>
-    <string name="txtCltFchRegistro">Fecha de Registro</string>
+    <string name="txtHstDispositivo">Tipo de equipo</string>
+    <string name="txtHstModelo">Modelo</string>
+    <string name="txtHstMarca">Marca</string>
+    <string name="txtHstEstado">Estado del equipo</string>
     <string name="txtCltDiagnostico">Diagnostico</string>
     <string name="txtCltEstado">Estado del Equipo</string>
     <string name="txtCltDetalles">Detalles del equipo</string>
