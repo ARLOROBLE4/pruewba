@@ -21,7 +21,7 @@ class registro: AppCompatActivity(), registroContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
+        setContentView(R.layout.activity_servicio_detalle)
 
         etNombre = findViewById(R.id.edtRegistroNombre)
         etAPaterno = findViewById(R.id.edtRegistroAPaterno)

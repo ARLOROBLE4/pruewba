@@ -9,7 +9,7 @@ import com.example.pruewba.R
 class perfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_perfil)
+        setContentView(R.layout.servicios_layout)
 
         // Enlace de botones para navegación
         val btnInicio = findViewById<Button>(R.id.btnPrfInicio)
