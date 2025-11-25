@@ -22,19 +22,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        TestApp.ejecutarTodasLasPruebas()
 
-        val btnIrLogin = findViewById<Button>(R.id.btnIrLogin)
-        val btnIrRegistro = findViewById<Button>(R.id.btnirRegistro)
 
-        btnIrLogin.setOnClickListener {
-            val intent = Intent(this, login::class.java)
-            startActivity(intent)
-        }
-
-        btnIrRegistro.setOnClickListener {
-            val intent = Intent(this, registro::class.java)
-            startActivity(intent)
-        }
     }
 }
