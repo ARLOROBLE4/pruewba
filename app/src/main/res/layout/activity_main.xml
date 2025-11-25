@@ -19,43 +19,121 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnIrLogin"
-        android:layout_width="270dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="56dp"
-        android:backgroundTint="@color/colorBotones"
+        android:id="@+id/btnBvnInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnInicio"
         android:textColor="@color/texto"
-        android:text="@string/btnIrLogin"
-        android:textSize="20sp"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/imgMainEmpresa"
-        app:layout_constraintStart_toStartOf="@+id/imgMainEmpresa"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainEmpresa" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
 
     <Button
-        android:id="@+id/btnirRegistro"
-        android:layout_width="270dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/colorBotones"
+        android:id="@+id/btnBvnServicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnServicios"
         android:textColor="@color/texto"
-        android:text="@string/btnIrRegistro"
-        android:textSize="20sp"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnIrLogin"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnIrLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnIrLogin" />
+        app:layout_constraintStart_toEndOf="@+id/btnBvnInicio"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
+
+    <Button
+        android:id="@+id/btnBvnConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/btnBvnConsulta"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
 
     <ImageView
-        android:id="@+id/imgMainEmpresa"
-        android:layout_width="198dp"
-        android:layout_height="188dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="@+id/imgMainlogo"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/imgMainlogo"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
-        app:srcCompat="@drawable/logo_empresa_pcextreme" />
+        android:id="@+id/imageView6"
+        android:layout_width="362dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
+        app:srcCompat="@drawable/imgreprovideo" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="355dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtBvnPublicidad3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="47dp"
+                android:text="@string/txtBnvPublicidad"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtBvnInfoPubli3"
+                android:layout_width="328dp"
+                android:layout_height="135dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="17dp"
+                android:text="@string/txtBnvInfoPubli"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtBvnPublicidad3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnBvnChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="34dp"
+        android:text="@string/btnBvnChat"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,120 +16,98 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="351dp"
-        android:layout_height="519dp"
-        app:cardCornerRadius="8dp"
+    <Button
+        android:id="@+id/btnSrvInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnInicio"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo" />
+
+    <Button
+        android:id="@+id/btnSrvServicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnServicios"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btnSrvInicio"
+        app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo" />
+
+    <Button
+        android:id="@+id/btnSrvConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/btnBvnConsulta"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSrvServicios"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="282dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="65dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="325dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="44dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnSrvAgendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="110dp"
+        android:text="@string/btnSrvAgenda"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imgRegistroLogo"
-        app:layout_constraintStart_toStartOf="@+id/imgRegistroLogo"
-        app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFFFF">
-
-            <Button
-                android:id="@+id/btnRegistrar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="@color/colorBotones"
-                android:text="@string/btnRegistrar"
-                android:textColor="@color/texto"
-                app:cornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/checkBox"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="@+id/checkBox"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-            <EditText
-                android:id="@+id/edtRegistroPassword"
-                android:layout_width="318dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="@string/edtRegistroPassword"
-                android:inputType="text"
-                android:password="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtRegistroEmail" />
-
-            <EditText
-                android:id="@+id/edtRegistroEmail"
-                android:layout_width="318dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="@string/edtRegistroEmail"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtRegistroAPaterno" />
-
-            <EditText
-                android:id="@+id/edtRegistroAMaterno"
-                android:layout_width="318dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="@string/edtRegistroAPaterno"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                app:layout_constraintEnd_toEndOf="@+id/edtRegistroNombre"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/edtRegistroNombre"
-                app:layout_constraintTop_toBottomOf="@+id/edtRegistroNombre" />
-
-            <EditText
-                android:id="@+id/edtRegistroAPaterno"
-                android:layout_width="318dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="@string/edtRegistroAMaterno"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtRegistroAMaterno" />
-
-            <EditText
-                android:id="@+id/edtRegistroNombre"
-                android:layout_width="318dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="44dp"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                android:hint="@string/edtRegistroNombre"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.484"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="318dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="17dp"
-                android:textColor="@color/black"
-                android:text="Acepto los términos y condiciónes y vendo mi alma al diablo."
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtRegistroPassword" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

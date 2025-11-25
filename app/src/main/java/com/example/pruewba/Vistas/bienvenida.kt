@@ -12,7 +12,7 @@ class bienvenida: AppCompatActivity() {
         setContentView(R.layout.activity_bienvenida)
         val btnInicio = findViewById<Button>(R.id.btnBvnInicio) // Botón "Inicio" en activity_bienvenida.xml
         val btnConsulta = findViewById<Button>(R.id.btnBvnConsulta) // Botón "Consulta" en activity_bienvenida.xml
-        val btnPerfil = findViewById<Button>(R.id.btnBvnPerfil) // Botón "Perfil" en activity_bienvenida.xml
+        val btnPerfil = findViewById<Button>(R.id.btnBvnServicios) // Botón "Perfil" en activity_bienvenida.xml
 
         // CASO 1: Lógica de navegación desde Bienvenida
 
