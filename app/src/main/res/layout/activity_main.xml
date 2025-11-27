@@ -64,7 +64,7 @@
         android:layout_width="355dp"
         android:layout_height="202dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +104,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtBvnPublicidad3" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -122,15 +123,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <VideoView
+    <androidx.media3.ui.PlayerView
         android:id="@+id/vdEmpresa"
-        android:layout_width="355dp"
-        android:layout_height="222dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="388dp"
+        android:layout_height="236dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="27dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
+        app:resize_mode="fit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.pruewba.Modelo
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ifaceApiService {
@@ -14,4 +15,8 @@ interface ifaceApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): Call<List<clsDatosRespuesta>>
+
+    // NUEVO MÉTODO para obtener los datos de la pantalla de inicio
+    @GET("apiInicio.php") // Asumiendo que la nueva API se llama apiInicio.php
+    fun obtenerDatosInicio(): Call<List<clsDatosInicio>>
 }

@@ -77,31 +77,6 @@
             android:layout_height="match_parent"
             android:background="#FFFFFFFF">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="155dp"
-                android:layout_height="142dp"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="109dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtConInfo"
-                app:srcCompat="@drawable/imgconsulta" />
-
-            <TextView
-                android:id="@+id/txtConIndicacion"
-                android:layout_width="259dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="58dp"
-                android:layout_marginTop="39dp"
-                android:layout_marginEnd="58dp"
-                android:textColor="@color/black"
-                android:text="Ingresa el numero de folio de tu ticket:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
             <TextView
                 android:id="@+id/txtConInfo"
                 android:layout_width="wrap_content"
@@ -109,7 +84,7 @@
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="17dp"
-                android:text="Consulta el estado de tu equipo"
+                android:text="MIS EQUIPOS"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -117,37 +92,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/edtConNumFolio"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="198dp"
-                android:ems="10"
-                android:hint="Folio"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtConIndicacion" />
-
-            <Button
-                android:id="@+id/btnConBuscarFolio"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginBottom="199dp"
-                android:text="Buscar"
-                android:textColor="@color/texto"
-                android:textSize="16dp"
-                app:backgroundTint="@color/colorBotones"
-                app:cornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/edtConNumFolio" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
