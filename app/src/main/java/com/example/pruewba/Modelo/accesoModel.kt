@@ -10,8 +10,8 @@ class accesoModel {
     private lateinit var apiService: ifaceApiService
 
     init {
-        val BASE_URL = "https://mauro.grupoctic.com/appMovil/Peliculas/api/"
-
+        val BASE_URL = "https://pcextreme.grupoctic.com/appMovil/PCStatus/Api/"
+        //https://srv760-files.hstgr.io/49621e5af04f9c9f/files/public_html/
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

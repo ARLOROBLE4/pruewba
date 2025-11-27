@@ -23,7 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Vistas.Login"
+            android:exported="false"/>
 
+        <activity android:name=".Vistas.Consulta"
+            android:exported="false"/>
+
+        <activity android:name=".Vistas.Servicios"
+            android:exported="false"/>
 
     </application>
 

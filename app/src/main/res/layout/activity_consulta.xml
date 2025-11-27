@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/main"
     android:layout_height="match_parent"
     android:background="#1E1E1E">
 
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="12dp"
-        android:text="@string/btnBvnPerfil"
+        android:text="Consulta"
         android:textColor="@color/texto"
         android:textSize="16dp"
         app:backgroundTint="@color/colorBotones"

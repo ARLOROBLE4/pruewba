@@ -10,6 +10,7 @@ import com.example.pruewba.Presentador.Contratos.ConsultaContract
 import com.example.pruewba.Presentador.ConsultaPresenter
 import com.example.pruewba.R
 
+
 class Consulta : AppCompatActivity(), ConsultaContract.View {
     private lateinit var txtConInfo: TextView
     private lateinit var presenter: ConsultaContract.Presentador
