@@ -76,18 +76,6 @@
                 app:layout_constraintStart_toStartOf="@+id/edtLoginPassword"
                 app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
 
-            <TextView
-                android:id="@+id/txtCrearCuenta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:text="¿No tienes una cuenta? Crea una dando clic aquí."
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <ImageView
                 android:id="@+id/imgLoginIcono"
                 android:layout_width="161dp"

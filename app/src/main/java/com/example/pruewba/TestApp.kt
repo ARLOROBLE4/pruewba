@@ -1,7 +1,6 @@
 package com.example.pruewba.Pruebas
 
 import android.util.Log
-import com.example.pruewba.Modelo.accessModel
 import java.util.Random
 
 /**

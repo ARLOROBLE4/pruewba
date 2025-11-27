@@ -1,6 +1,5 @@
 package com.example.pruewba.Pruebas
 
-import com.example.pruewba.Modelo.accessModel
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
