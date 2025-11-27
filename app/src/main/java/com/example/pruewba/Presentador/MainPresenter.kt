@@ -1,9 +1,10 @@
 package com.example.pruewba.Presentador
 
-import com.example.pruewba.Modelo.inicioModel
 import com.example.pruewba.Presentador.Contratos.MainContract
+import com.example.pruewba.Modelo.inicioModel
 
-class MainPresenter (private val modeloInicio: inicioModel): MainContract.Presentador {
+// El Presentador ahora requiere una instancia de InicioModelo
+class MainPresenter(private val modeloInicio: inicioModel) : MainContract.Presentador {
     private var view: MainContract.View? = null
 
     override fun attachView(view: MainContract.View) {
@@ -22,6 +23,7 @@ class MainPresenter (private val modeloInicio: inicioModel): MainContract.Presen
         view?.navigateToServiciosScreen()
     }
 
+    // NUEVA LÓGICA: Cargar datos de la API
     override fun loadInitialData() {
         modeloInicio.obtenerDatosInicio { datos, errorMessage ->
             if (datos != null) {

@@ -64,7 +64,7 @@
         android:layout_width="355dp"
         android:layout_height="202dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,14 +123,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.media3.ui.PlayerView
+    <VideoView
         android:id="@+id/vdEmpresa"
-        android:layout_width="388dp"
-        android:layout_height="236dp"
+        android:layout_width="377dp"
+        android:layout_height="239dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
-        app:resize_mode="fit" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
