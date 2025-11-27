@@ -31,6 +31,8 @@
 
         <activity android:name=".Vistas.Servicios"
             android:exported="false"/>
+        <activity android:name=".Vistas.ServicioDetalle"
+            android:exported="false"/>
 
     </application>
 

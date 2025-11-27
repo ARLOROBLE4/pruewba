@@ -19,4 +19,7 @@ interface ifaceApiService {
     // NUEVO MÉTODO para obtener los datos de la pantalla de inicio
     @GET("apiInicio.php") // Asumiendo que la nueva API se llama apiInicio.php
     fun obtenerDatosInicio(): Call<List<clsDatosInicio>>
+    // NUEVO MÉTODO: Obtener lista de servicios
+    @GET("apiServicios.php")
+    fun obtenerServicios(): Call<List<clsServicio>>
 }
