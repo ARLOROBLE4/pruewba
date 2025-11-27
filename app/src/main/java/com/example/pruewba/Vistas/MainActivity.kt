@@ -12,6 +12,11 @@ import com.example.pruewba.R
 
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var btnBvnInicio: Button
+    lateinit var btnBvnServicios: Button
+    lateinit var btnBvnConsulta: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,7 +27,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        btnBvnInicio = findViewById(R.id.btnBvnInicio) // Botón "Inicio" en activity_bienvenida.xml
+        btnBvnServicios = findViewById(R.id.btnBvnConsulta) // Botón "Servicios" en activity_servicios.xml
+        btnBvnConsulta = findViewById(R.id.btnBvnServicios) // Botón "Consulta" en activity_consulta.xml
 
+        btnBvnConsulta.setOnClickListener{
 
+        }
     }
 }

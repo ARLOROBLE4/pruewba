@@ -60,28 +60,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="362dp"
-        android:layout_height="228dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
-        app:srcCompat="@drawable/imgreprovideo" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="355dp"
         android:layout_height="202dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+        app:layout_constraintTop_toBottomOf="@+id/vdEmpresa">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -134,5 +121,16 @@
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <VideoView
+        android:id="@+id/vdEmpresa"
+        android:layout_width="355dp"
+        android:layout_height="222dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

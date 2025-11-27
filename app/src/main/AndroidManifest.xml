@@ -26,9 +26,7 @@
         <activity
             android:name=".Vistas.login"
             android:exported="false" />
-        <activity
-            android:name=".Vistas.registro"
-            android:exported="false" />
+
 
         <activity
             android:name=".Vistas.bienvenida"
@@ -36,9 +34,7 @@
         <activity
             android:name=".Vistas.consulta"
             android:exported="false" />
-        <activity
-            android:name=".Vistas.perfil"
-            android:exported="false" />
+
     </application>
 
 </manifest>
