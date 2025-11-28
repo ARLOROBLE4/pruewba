@@ -58,56 +58,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgRegistroLogo" />
 
-    <ImageView
-        android:id="@+id/imgSrvServicio"
-        android:layout_width="156dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="144dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSrvServicios"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/txtSrvTitulo"
-        android:layout_width="282dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="65dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgSrvServicio" />
-
-    <TextView
-        android:id="@+id/txtSrvDescripcion"
-        android:layout_width="325dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="44dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSrvTitulo" />
-
     <Button
         android:id="@+id/btnSrvAgendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="110dp"
+        android:layout_width="116dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginBottom="44dp"
         android:text="@string/btnSrvAgenda"
         android:textColor="@color/texto"
         android:textSize="16dp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSrvDescripcion" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
