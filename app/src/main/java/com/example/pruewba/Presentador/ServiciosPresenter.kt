@@ -1,6 +1,6 @@
 package com.example.pruewba.Presentador
 
-import com.example.pruewba.Modelo.ServiciosModel // Usando la clase corregida
+import com.example.pruewba.Modelo.ServiciosModel
 import com.example.pruewba.Modelo.clsServicio
 import com.example.pruewba.Presentador.Contratos.ServiciosContract
 

@@ -15,7 +15,6 @@ class HistorialAdapter(
 ) : RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
 
     class HistorialViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // Eliminado: val txtTipoEquipo: TextView = itemView.findViewById(R.id.txtTipoEquipo)
         val txtMarca: TextView = itemView.findViewById(R.id.txtMarca)
         val txtModelo: TextView = itemView.findViewById(R.id.txtModelo)
         val txtEstado: TextView = itemView.findViewById(R.id.txtEstado)
@@ -33,8 +32,6 @@ class HistorialAdapter(
 
     override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
         val dispositivo = listaDispositivos[position]
-
-        // Eliminado: holder.txtTipoEquipo.text = dispositivo.tipoEquipo
         holder.txtMarca.text = dispositivo.marca
         holder.txtModelo.text = dispositivo.modelo
         holder.txtEstado.text = dispositivo.estado

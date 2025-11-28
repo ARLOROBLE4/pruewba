@@ -6,7 +6,7 @@ import com.example.pruewba.Modelo.SesionManager
 
 class MainPresenter(
     private val modeloInicio: inicioModel,
-    private val sessionManager: SesionManager // 🛑 USANDO tu SesionManager
+    private val sessionManager: SesionManager
 ) : MainContract.Presentador {
     private var view: MainContract.View? = null
 

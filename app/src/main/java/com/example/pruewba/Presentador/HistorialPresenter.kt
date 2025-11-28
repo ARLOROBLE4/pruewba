@@ -23,7 +23,7 @@ class HistorialPresenter(
     override fun loadUserHistorial() {
         val userId = sessionManager.getUserId()
 
-        if (userId <= 0) { // 🛑 Verificación mejorada (debe ser > 0)
+        if (userId <= 0) {
             view?.showLoadingError("Error: ID de usuario no válido. Por favor, inicie sesión nuevamente.")
             return
         }

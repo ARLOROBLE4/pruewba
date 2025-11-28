@@ -25,7 +25,7 @@ class inicioModel {
         apiService.obtenerDatosInicio().enqueue(object : Callback<List<clsDatosInicio>> {
             override fun onResponse(call: Call<List<clsDatosInicio>>, response: Response<List<clsDatosInicio>>) {
                 if (response.isSuccessful) {
-                    // El PHP devuelve una lista, tomamos el primer elemento (si existe)
+
                     val datos = response.body()?.firstOrNull()
                     onResult(datos, null)
                 } else {

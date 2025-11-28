@@ -2,6 +2,7 @@ package com.example.pruewba.Vistas
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +10,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pruewba.Modelo.ServiciosModel // Usando la clase corregida
+import com.example.pruewba.Modelo.ServiciosModel
 import com.example.pruewba.Modelo.clsServicio
+import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.Presentador.Contratos.ServiciosContract
 import com.example.pruewba.R
 import com.example.pruewba.Presentador.ServiciosPresenter
@@ -18,6 +20,12 @@ import com.example.pruewba.Presentador.ServiciosPresenter
 class Servicios : AppCompatActivity(), ServiciosContract.View {
     private lateinit var rcvServicios: RecyclerView
     private lateinit var presenter: ServiciosContract.Presentador
+    private lateinit var sessionManager: SesionManager
+
+    private lateinit var btnBvnInicio2: Button
+    private lateinit var btnBvnServicios2: Button
+    private lateinit var btnBvnConsulta2: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +37,15 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
             insets
         }
 
+        // 1. Mapeo de vistas
         rcvServicios = findViewById(R.id.rcvServicios)
+        btnBvnInicio2 = findViewById(R.id.btnBvnInicio2)
+        btnBvnServicios2 = findViewById(R.id.btnBvnServicios2)
+        btnBvnConsulta2 = findViewById(R.id.btnBvnConsulta2)
 
-        // Inicializar Presenter con el Modelo
-        presenter = ServiciosPresenter(ServiciosModel()) // Usando ServiciosModelo
+        // 2. Inicializar Presenter y SessionManager
+        sessionManager = SesionManager(this)
+        presenter = ServiciosPresenter(ServiciosModel())
         presenter.attachView(this)
 
         // Configurar RecyclerView
@@ -40,6 +53,13 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
 
         // Iniciar la carga de datos
         presenter.loadServices()
+
+        btnBvnInicio2.setOnClickListener { navigateToMainActivity() }
+        btnBvnServicios2.setOnClickListener { /* No hacer nada, ya está en Servicios */ }
+
+        btnBvnConsulta2.setOnClickListener {
+            validateAndNavigateToHistorial()
+        }
     }
 
     override fun onDestroy() {
@@ -47,18 +67,24 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         super.onDestroy()
     }
 
-    // --- Implementación de ServiciosContract.View ---
+    // Se valida la sesion
+    private fun validateAndNavigateToHistorial() {
+        if (sessionManager.isLoggedIn()) {
+            startActivity(Intent(this, Historial::class.java))
+        } else {
+            startActivity(Intent(this, Login::class.java))
+        }
+    }
 
     override fun displayServices(servicios: List<clsServicio>) {
-        // Inicialización del adaptador con DOS listeners
         val adapter = ServiciosAdapter(
             context = this,
             listaServicios = servicios,
             onServiceClickListener = { servicio ->
-                presenter.handleServiceClick(servicio) // Ir a Detalle
+                presenter.handleServiceClick(servicio)
             },
             onAgendarClickListener = { servicio ->
-                presenter.handleAgendarClick(servicio) // Ir a Agenda
+                presenter.handleAgendarClick(servicio)
             }
         )
         rcvServicios.adapter = adapter
@@ -69,7 +95,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun navigateToServiceDetail(servicio: clsServicio) {
-        // Navegar a ServicioDetalle.kt
         val intent = Intent(this, ServicioDetalle::class.java).apply {
             putExtra("id", servicio.id)
             putExtra("titulo", servicio.titulo)
@@ -80,7 +105,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun navigateToAgendaScreen(servicio: clsServicio) {
-        // Navegar a Agenda.kt
         val intent = Intent(this, Agenda::class.java).apply {
             putExtra("servicio_id", servicio.id)
             putExtra("servicio_titulo", servicio.titulo)
@@ -88,4 +112,12 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         startActivity(intent)
     }
 
+    // Métodos de navegación auxiliar
+    private fun navigateToMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
+        finish()
+    }
+    private fun navigateToHistorialActivity() {
+        // Redirigido a validateAndNavigateToHistorial()
+    }
 }

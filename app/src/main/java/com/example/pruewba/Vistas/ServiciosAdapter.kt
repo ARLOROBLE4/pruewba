@@ -44,7 +44,6 @@ class ServiciosAdapter(
     override fun onBindViewHolder(holder: ServicioViewHolder, position: Int) {
         val servicio = listaServicios[position]
 
-        // Carga de Texto (usando el operador elvis ?: "" para evitar problemas de nulls)
         holder.txtServicio.text = servicio.titulo ?: ""
         holder.txtInfoServicio.text = servicio.descripcion ?: ""
 

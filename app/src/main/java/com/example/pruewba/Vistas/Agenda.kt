@@ -16,30 +16,24 @@ import com.example.pruewba.Modelo.agendaModel
 import com.example.pruewba.Presentador.AgendaPresenter
 import com.example.pruewba.Presentador.Contratos.AgendaContract
 import com.example.pruewba.R
-import com.google.android.material.progressindicator.CircularProgressIndicator // Si usas este componente
 
 class Agenda : AppCompatActivity(), AgendaContract.View {
 
-    // 🛑 IDs de EditText ajustados para el formulario
     private lateinit var agnNombre: EditText
     private lateinit var agnAPaterno: EditText
     private lateinit var agnAMaterno: EditText
     private lateinit var edtFechaCita: EditText
     private lateinit var edtHora: EditText
-    private lateinit var btnGuardarCita: Button // 🛑 Nuevo ID
+    private lateinit var btnGuardarCita: Button
 
-    private lateinit var txtTituloServicio: TextView // txtConInfo3
+    private lateinit var txtTituloServicio: TextView
 
-    // Elementos de navegación
     private lateinit var btnConInicio4: Button
     private lateinit var btnConPerfil4: Button
     private lateinit var btnConConsulta4: Button
 
-    // Asumo que tienes un componente de carga en el layout raíz
-    private var loadingIndicator: View? = null
-
     private lateinit var presenter: AgendaContract.Presentador
-    private var servicioTitulo: String? = null // Para mostrar el servicio
+    private var servicioTitulo: String? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,12 +54,9 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         agnNombre = findViewById(R.id.agnNombre)
         agnAPaterno = findViewById(R.id.agnAPaterno)
         agnAMaterno = findViewById(R.id.agnAMaterno)
-
-        // 🛑 Nuevos IDs de los campos de cita
         edtFechaCita = findViewById(R.id.edtFechaCita)
         edtHora = findViewById(R.id.edtHora)
         btnGuardarCita = findViewById(R.id.btnGuardarCita)
-
         txtTituloServicio = findViewById(R.id.txtConInfo3)
 
         btnConInicio4 = findViewById(R.id.btnConInicio4)
@@ -79,7 +70,7 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
             txtTituloServicio.text = "Ingresa los siguientes datos"
         }
 
-        // 4. Inicializar Presenter (Ya NO requiere SesionManager)
+        // 4. Inicializar Presenter
         val agendaModel = agendaModel()
         presenter = AgendaPresenter(agendaModel)
         presenter.attachView(this)
@@ -90,7 +81,7 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         }
 
         btnConInicio4.setOnClickListener { navigateToMainActivity() }
-        btnConPerfil4.setOnClickListener { navigateToServicesActivity() }
+        btnConPerfil4.setOnClickListener { navigateToServiciosActivity() }
         btnConConsulta4.setOnClickListener { navigateToHistorialActivity() }
     }
 
@@ -98,8 +89,6 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         presenter.detachView()
         super.onDestroy()
     }
-
-    // --- Implementación de AgendaContract.View ---
 
     override fun getDatosAgendamiento(): Map<String, String> {
         return mapOf(
@@ -113,15 +102,8 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
 
     override fun getServicioTitulo(): String = servicioTitulo ?: ""
 
-    override fun showLoading() {
-        // Muestra un indicador de carga
-        // loadingIndicator?.visibility = View.VISIBLE
-    }
-
-    override fun hideLoading() {
-        // Oculta el indicador de carga
-        // loadingIndicator?.visibility = View.GONE
-    }
+    override fun showLoading() { }
+    override fun hideLoading() { }
 
     override fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
@@ -142,13 +124,11 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         startActivity(intent)
         finish()
     }
-
-    // Métodos de navegación auxiliares
     private fun navigateToMainActivity() {
         startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
         finish()
     }
-    private fun navigateToServicesActivity() {
+    private fun navigateToServiciosActivity() {
         startActivity(Intent(this, Servicios::class.java))
     }
     private fun navigateToHistorialActivity() {

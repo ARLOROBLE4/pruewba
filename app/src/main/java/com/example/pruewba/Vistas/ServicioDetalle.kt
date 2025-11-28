@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.pruewba.Modelo.SesionManager // 🛑 Importar SesionManager
 import com.example.pruewba.R
 
 // Esta Activity solo recibe datos del Intent, no necesita Contrato ni Presenter
@@ -21,42 +22,46 @@ class ServicioDetalle : AppCompatActivity() {
     private lateinit var txtSrvDescripcion: TextView
     private lateinit var btnSrvAgendar: Button
 
-    // URL base para las imágenes de servicios (debe coincidir con ServiciosAdapter.kt)
+    private lateinit var btnSrvInicio: Button
+    private lateinit var btnSrvServicios: Button
+    private lateinit var btnSrvConsulta: Button
+
+    private lateinit var sessionManager: SesionManager
+
     private val BASE_IMAGE_URL = "https://pcextreme.grupoctic.com/appWeb/aseets/"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        // Asegúrate de usar el ID de tu layout de detalle
         setContentView(R.layout.activity_servicio_detalle)
 
-        // El ID del ConstraintLayout raíz del layout de detalle (si lo tuvieras)
+        // 1. Inicializar SessionManager
+        sessionManager = SesionManager(this) // Inicializar Session Manager
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // 1. Mapeo de Vistas (IDs de activity_servicio_detalle.xml)
+        // 2. Mapeo de Vistas
         imgSrvServicio = findViewById(R.id.imgSrvServicio)
         txtSrvTitulo = findViewById(R.id.txtSrvTitulo)
         txtSrvDescripcion = findViewById(R.id.txtSrvDescripcion)
         btnSrvAgendar = findViewById(R.id.btnSrvAgendar)
 
-        // Botones de navegación (simplemente para completar la UI, la lógica de navegación se omitirá aquí)
-        val btnSrvInicio = findViewById<Button>(R.id.btnSrvInicio)
-        val btnSrvServicios = findViewById<Button>(R.id.btnSrvServicios)
-        val btnSrvConsulta = findViewById<Button>(R.id.btnSrvConsulta)
+        btnSrvInicio = findViewById(R.id.btnSrvInicio)
+        btnSrvServicios = findViewById(R.id.btnSrvServicios)
+        btnSrvConsulta = findViewById(R.id.btnSrvConsulta)
 
-
-        // 2. Obtener datos del Intent
+        // 3. Obtener datos del Intent
         val servicioTitulo = intent.getStringExtra("titulo")
         val servicioDescripcion = intent.getStringExtra("descripcion")
         val servicioImagen = intent.getStringExtra("imagen")
-        // val servicioId = intent.getIntExtra("id", -1) // Si necesitas el ID
+        val servicioId = intent.getIntExtra("id", -1)
 
-        // 3. Cargar Imagen y Texto
+        // 4. Cargar Imagen y Texto
         if (servicioImagen != null) {
             Glide.with(this)
                 .load(BASE_IMAGE_URL + servicioImagen)
@@ -66,11 +71,41 @@ class ServicioDetalle : AppCompatActivity() {
         txtSrvTitulo.text = servicioTitulo
         txtSrvDescripcion.text = servicioDescripcion
 
-        // 4. Lógica de Botón (Ejemplo: Agendar)
+        // Botón Agendar
         btnSrvAgendar.setOnClickListener {
-            // Aquí iría la lógica para iniciar la pantalla de agendamiento
-            // Por ejemplo: val intent = Intent(this, AgendarActivity::class.java)
-            // startActivity(intent)
+            // Redirige a Agenda (similar a Servicios.kt)
+            val intent = Intent(this, Agenda::class.java).apply {
+                putExtra("servicio_id", servicioId)
+                putExtra("servicio_titulo", servicioTitulo)
+            }
+            startActivity(intent)
         }
+
+        // Navegación Global
+        btnSrvInicio.setOnClickListener { navigateToMainActivity() }
+        btnSrvServicios.setOnClickListener { navigateToServiciosActivity() }
+
+
+        btnSrvConsulta.setOnClickListener {
+            validateAndNavigateToHistorial()
+        }
+    }
+
+    //Se valida sesion
+    private fun validateAndNavigateToHistorial() {
+        if (sessionManager.isLoggedIn()) {
+            startActivity(Intent(this, Historial::class.java))
+        } else {
+            startActivity(Intent(this, Login::class.java))
+        }
+    }
+
+    // Métodos de navegación auxiliar
+    private fun navigateToMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
+        finish()
+    }
+    private fun navigateToServiciosActivity() {
+        startActivity(Intent(this, Servicios::class.java))
     }
 }

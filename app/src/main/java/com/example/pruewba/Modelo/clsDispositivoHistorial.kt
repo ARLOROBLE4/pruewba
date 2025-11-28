@@ -8,7 +8,6 @@ data class clsDispositivoHistorial(
     @SerializedName("modelo") val modelo: String,
     @SerializedName("estado") val estado: String,
     @SerializedName("numero_serie") val numeroSerie: String,
-    // 🛑 CAMPOS AÑADIDOS para el Detalle de Consulta
     @SerializedName("fechaIngreso") val fechaIngreso: String,
     @SerializedName("detalles") val detalles: String,
     @SerializedName("diagnostico") val diagnostico: String,

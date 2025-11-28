@@ -2,11 +2,11 @@ package com.example.pruewba.Presentador
 
 import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
-import com.example.pruewba.Modelo.SesionManager // 🛑 Importar tu SesionManager
+import com.example.pruewba.Modelo.SesionManager
 
 class LoginPresenter(
     private val modelo: accesoModel,
-    private val sessionManager: SesionManager // 🛑 USANDO tu SesionManager
+    private val sessionManager: SesionManager
 ) : LoginContract.Presentador {
     private var view: LoginContract.View? = null
 
@@ -27,7 +27,7 @@ class LoginPresenter(
         modelo.iniciarSesion(email, password) { isSuccess, message, userId ->
             if (isSuccess) {
                 if (userId != null && userId != -1) {
-                    sessionManager.createLoginSession(userId) // 🛑 Guardar la sesión
+                    sessionManager.createLoginSession(userId)
                     view?.showLoginSuccess()
                     view?.navigateToConsultaScreen()
                 } else {

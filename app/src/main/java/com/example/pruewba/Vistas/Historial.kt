@@ -21,8 +21,8 @@ class Historial : AppCompatActivity(), HistorialContract.View {
 
     private lateinit var rcvHistorial: RecyclerView
     private lateinit var presenter: HistorialContract.Presentador
+    private lateinit var sessionManager: SesionManager
 
-    // Botones de navegación (IDs de activity_historial.xml)
     private lateinit var btnConInicio3: Button
     private lateinit var btnConPerfil3: Button
     private lateinit var btnConConsulta3: Button
@@ -46,25 +46,19 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         btnConPerfil3 = findViewById(R.id.btnConPerfil3)
         btnConConsulta3 = findViewById(R.id.btnConConsulta3)
 
-        // 2. Inicializar Presenter
+        // 2. Inicializar Presenter y SessionManager
+        sessionManager = SesionManager(this)
         val historialModel = HistorialModel()
-        val sessionManager = SesionManager(this)
         presenter = HistorialPresenter(historialModel, sessionManager)
 
         presenter.attachView(this)
 
-        // 3. Listeners de Navegación
-        btnConInicio3.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
-        }
-
-        btnConPerfil3.setOnClickListener {
-            startActivity(Intent(this, Servicios::class.java))
-        }
+        // 3. Listeners de Navegación Global
+        btnConInicio3.setOnClickListener { navigateToMainActivity() }
+        btnConPerfil3.setOnClickListener { navigateToServiciosActivity() }
 
         btnConConsulta3.setOnClickListener {
-            // Navega a la pantalla de consulta genérica
-            startActivity(Intent(this, Consulta::class.java))
+            validateAndNavigateToHistorial() // Va a Historial o Login
         }
     }
 
@@ -73,14 +67,19 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         super.onDestroy()
     }
 
-    // --- Implementación de HistorialContract.View ---
+    private fun validateAndNavigateToHistorial() {
+        if (sessionManager.isLoggedIn()) {
+            Toast.makeText(this, "Ya estás viendo el historial.", Toast.LENGTH_SHORT).show()
+        } else {
+            startActivity(Intent(this, Login::class.java))
+        }
+    }
 
     override fun displayHistorial(dispositivos: List<clsDispositivoHistorial>) {
         if (dispositivos.isEmpty()) {
             showLoadingError("No tienes equipos registrados.")
             return
         }
-        // El adaptador maneja el clic y llama a handleVerMasClick
         val adapter = HistorialAdapter(dispositivos) { dispositivo ->
             presenter.handleVerMasClick(dispositivo)
         }
@@ -91,20 +90,30 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         Toast.makeText(this, "Error al cargar historial: $message", Toast.LENGTH_LONG).show()
     }
 
-    // 🛑 Función clave: Pasa TODOS los 8 campos de detalle
     override fun navigateToDetalleConsulta(dispositivo: clsDispositivoHistorial) {
         val intent = Intent(this, ConsultaDetalle::class.java).apply {
-            // 8 CAMPOS DE DATOS:
             putExtra("id_registro", dispositivo.idRegistro)
-            putExtra("numero_serie", dispositivo.numeroSerie) // 1. Número de Serie
-            putExtra("marca", dispositivo.marca) // 2. Marca
-            putExtra("modelo", dispositivo.modelo) // 3. Modelo
-            putExtra("estado", dispositivo.estado) // 4. Estado
-            putExtra("fecha_ingreso", dispositivo.fechaIngreso) // 5. Fecha de Ingreso
-            putExtra("detalles", dispositivo.detalles) // 6. Detalles
-            putExtra("diagnostico", dispositivo.diagnostico) // 7. Diagnóstico
-            putExtra("costo", dispositivo.costo) // 8. Costo
+            putExtra("numero_serie", dispositivo.numeroSerie)
+            putExtra("marca", dispositivo.marca)
+            putExtra("modelo", dispositivo.modelo)
+            putExtra("estado", dispositivo.estado)
+            putExtra("fecha_ingreso", dispositivo.fechaIngreso)
+            putExtra("detalles", dispositivo.detalles)
+            putExtra("diagnostico", dispositivo.diagnostico)
+            putExtra("costo", dispositivo.costo)
         }
         startActivity(intent)
+    }
+
+    // Métodos de navegación auxiliar
+    private fun navigateToMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
+        finish()
+    }
+    private fun navigateToServiciosActivity() {
+        startActivity(Intent(this, Servicios::class.java))
+    }
+    private fun navigateToConsultaActivity() {
+        // Redirigido a validateAndNavigateToHistorial()
     }
 }
