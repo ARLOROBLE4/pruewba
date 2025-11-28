@@ -15,7 +15,7 @@
     <string name="edtRegistroAPaterno">Apellido Paterno</string>
     <string name="edtRegistroAMaterno">Apellido Materno</string>
     <string name="edtRegistroEmail">Email</string>
-    <string name="btnSrvAgenda">Agendar Cita</string>
+    <string name="btnSrvAgenda">Enviar</string>
     <string name="edtRegistroPassword">Contraseña</string>
 
     <string name="txtBnvAgendar">Agendar</string>
