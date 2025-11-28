@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pruewba.Modelo.ServiciosModel
+import com.example.pruewba.Modelo.ServiciosModel // Usando la clase corregida
 import com.example.pruewba.Modelo.clsServicio
 import com.example.pruewba.Presentador.Contratos.ServiciosContract
 import com.example.pruewba.R
@@ -32,13 +32,13 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         rcvServicios = findViewById(R.id.rcvServicios)
 
         // Inicializar Presenter con el Modelo
-        presenter = ServiciosPresenter(ServiciosModel())
+        presenter = ServiciosPresenter(ServiciosModel()) // Usando ServiciosModelo
         presenter.attachView(this)
 
         // Configurar RecyclerView
         rcvServicios.layoutManager = LinearLayoutManager(this)
 
-        // 🛑 Lógica similar a loadInitialData() de MainActivity: iniciar la carga
+        // Iniciar la carga de datos
         presenter.loadServices()
     }
 
@@ -50,10 +50,17 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     // --- Implementación de ServiciosContract.View ---
 
     override fun displayServices(servicios: List<clsServicio>) {
-        // Muestra los datos en el RecyclerView
-        val adapter = ServiciosAdapter(this, servicios) { servicio ->
-            presenter.handleServiceClick(servicio)
-        }
+        // Inicialización del adaptador con DOS listeners
+        val adapter = ServiciosAdapter(
+            context = this,
+            listaServicios = servicios,
+            onServiceClickListener = { servicio ->
+                presenter.handleServiceClick(servicio) // Ir a Detalle
+            },
+            onAgendarClickListener = { servicio ->
+                presenter.handleAgendarClick(servicio) // Ir a Agenda
+            }
+        )
         rcvServicios.adapter = adapter
     }
 
@@ -62,12 +69,21 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun navigateToServiceDetail(servicio: clsServicio) {
-        // Navegar a la Activity de detalle, pasando todos los datos
+        // Navegar a ServicioDetalle.kt
         val intent = Intent(this, ServicioDetalle::class.java).apply {
             putExtra("id", servicio.id)
             putExtra("titulo", servicio.titulo)
             putExtra("descripcion", servicio.descripcion)
             putExtra("imagen", servicio.imagen)
+        }
+        startActivity(intent)
+    }
+
+    override fun navigateToAgendaScreen(servicio: clsServicio) {
+        // Navegar a Agenda.kt
+        val intent = Intent(this, Agenda::class.java).apply {
+            putExtra("servicio_id", servicio.id)
+            putExtra("servicio_titulo", servicio.titulo)
         }
         startActivity(intent)
     }

@@ -1,10 +1,9 @@
 package com.example.pruewba.Presentador
 
-import com.example.pruewba.Modelo.ServiciosModel
+import com.example.pruewba.Modelo.ServiciosModel // Usando la clase corregida
 import com.example.pruewba.Modelo.clsServicio
 import com.example.pruewba.Presentador.Contratos.ServiciosContract
 
-// El Presentador ahora necesita el Modelo de Servicios
 class ServiciosPresenter(private val modelo: ServiciosModel) : ServiciosContract.Presentador {
     private var view: ServiciosContract.View? = null
 
@@ -17,16 +16,20 @@ class ServiciosPresenter(private val modelo: ServiciosModel) : ServiciosContract
     }
 
     override fun loadServices() {
-        modelo.obtenerServicios { servicios, errorMessage -> // <-- Aquí se inicia la carga
+        modelo.obtenerServicios { servicios, errorMessage ->
             if (servicios != null) {
                 view?.displayServices(servicios)
             } else {
-                view?.showFetchServicesError(errorMessage ?: "Error desconocido...")
+                view?.showFetchServicesError(errorMessage ?: "Error desconocido al obtener servicios")
             }
         }
     }
 
     override fun handleServiceClick(servicio: clsServicio) {
         view?.navigateToServiceDetail(servicio)
+    }
+
+    override fun handleAgendarClick(servicio: clsServicio) {
+        view?.navigateToAgendaScreen(servicio) // Navega a Agenda.kt
     }
 }
