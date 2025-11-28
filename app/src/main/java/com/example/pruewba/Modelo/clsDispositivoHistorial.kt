@@ -4,9 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class clsDispositivoHistorial(
     @SerializedName("id_registro") val idRegistro: Int,
-    // Eliminado: @SerializedName("tipo_equipo") val tipoEquipo: String,
     @SerializedName("marca") val marca: String,
     @SerializedName("modelo") val modelo: String,
     @SerializedName("estado") val estado: String,
-    @SerializedName("numero_serie") val numeroSerie: String
+    @SerializedName("numero_serie") val numeroSerie: String,
+    // 🛑 CAMPOS AÑADIDOS para el Detalle de Consulta
+    @SerializedName("fechaIngreso") val fechaIngreso: String,
+    @SerializedName("detalles") val detalles: String,
+    @SerializedName("diagnostico") val diagnostico: String,
+    @SerializedName("costo") val costo: String
 )

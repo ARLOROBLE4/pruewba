@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
-import com.example.pruewba.Modelo.SesionManager // 🛑 Importar tu SesionManager
+import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.R
 
 class Login : AppCompatActivity(), LoginContract.View {
@@ -22,8 +22,9 @@ class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var etPassword: EditText
     private lateinit var btnAcceder: Button
     private lateinit var ckbPassword: CheckBox
+    private lateinit var btnRegresar: Button // 🛑 NUEVO: Botón Regresar
     private lateinit var presenter: LoginContract.Presentador
-    private lateinit var sessionManager: SesionManager // 🛑 USANDO tu SesionManager
+    private lateinit var sessionManager: SesionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +36,16 @@ class Login : AppCompatActivity(), LoginContract.View {
             insets
         }
 
+        // 1. Mapeo de Vistas
         etEmail = findViewById(R.id.edtLoginEmail)
         etPassword = findViewById(R.id.edtLoginPassword)
         btnAcceder = findViewById(R.id.btnLoguear)
         ckbPassword = findViewById(R.id.ckbPassword)
+        btnRegresar = findViewById(R.id.btnRegresar) // 🛑 NUEVO: Mapeo
 
-        sessionManager = SesionManager(this) // 🛑 USANDO tu SesionManager
+        sessionManager = SesionManager(this)
 
+        // 2. Lógica del Checkbox
         ckbPassword.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
@@ -51,13 +55,22 @@ class Login : AppCompatActivity(), LoginContract.View {
             etPassword.setSelection(etPassword.text.length)
         }
 
-        presenter = LoginPresenter(accesoModel(), sessionManager) // 🛑 Pasar SessionManager
+        // 3. Inicializar Presenter
+        presenter = LoginPresenter(accesoModel(), sessionManager)
         presenter.attachView(this)
 
+        // 4. Listeners
+
+        // Listener para Iniciar Sesión
         btnAcceder.setOnClickListener {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             presenter.handleLoginButtonClick(email, password)
+        }
+
+        // 🛑 NUEVO: Listener para Regresar
+        btnRegresar.setOnClickListener {
+            navigateToMainActivity()
         }
     }
 
@@ -65,6 +78,8 @@ class Login : AppCompatActivity(), LoginContract.View {
         presenter.detachView()
         super.onDestroy()
     }
+
+    // --- Implementación de LoginContract.View ---
 
     override fun showLoginSuccess() {
         Toast.makeText(this, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
@@ -79,5 +94,12 @@ class Login : AppCompatActivity(), LoginContract.View {
         val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()
+    }
+
+    // 🛑 NUEVO: Método de Navegación a MainActivity
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Cierra la actividad de Login
     }
 }

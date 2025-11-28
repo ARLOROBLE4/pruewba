@@ -25,10 +25,8 @@
         </activity>
         <activity android:name=".Vistas.Login"
             android:exported="false"/>
-
         <activity android:name=".Vistas.Consulta"
             android:exported="false"/>
-
         <activity android:name=".Vistas.Servicios"
             android:exported="false"/>
         <activity android:name=".Vistas.ServicioDetalle"
@@ -38,6 +36,8 @@
         <activity android:name=".Vistas.Historial"
             android:exported="false"/>
         <activity android:name=".Vistas.Chat"
+            android:exported="false"/>
+        <activity android:name=".Vistas.ConsultaDetalle"
             android:exported="false"/>
 
 
