@@ -17,11 +17,11 @@ class ServiciosPresenter(private val modelo: ServiciosModel) : ServiciosContract
     }
 
     override fun loadServices() {
-        modelo.obtenerServicios { servicios, errorMessage ->
+        modelo.obtenerServicios { servicios, errorMessage -> // <-- Aquí se inicia la carga
             if (servicios != null) {
                 view?.displayServices(servicios)
             } else {
-                view?.showFetchServicesError(errorMessage ?: "Error desconocido al obtener servicios")
+                view?.showFetchServicesError(errorMessage ?: "Error desconocido...")
             }
         }
     }

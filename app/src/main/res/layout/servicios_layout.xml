@@ -6,39 +6,71 @@
     android:layout_height="wrap_content"
     android:background="#1E1E1E">
 
-    <TextView
-        android:id="@+id/txtInfoServicio"
-        android:layout_width="246dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:text=""
-        android:textColor="@color/texto"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/imgServicio"
-        app:layout_constraintTop_toBottomOf="@+id/txtServicio" />
-
-    <TextView
-        android:id="@+id/txtServicio"
-        android:layout_width="246dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text=""
-        android:textColor="@color/texto"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/imgServicio"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgServicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="397dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2196F3">
+
+            <TextView
+                android:id="@+id/txtInfoServicio"
+                android:layout_width="225dp"
+                android:layout_height="101dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textColor="@color/texto"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/imgServicio"
+                app:layout_constraintTop_toBottomOf="@+id/txtServicio" />
+
+            <TextView
+                android:id="@+id/txtServicio"
+                android:layout_width="223dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="20dp"
+                android:text=""
+                android:textColor="@color/texto"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/imgServicio"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgServicio"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <Button
+                android:id="@+id/btnAgendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/txtBnvAgendar"
+                android:textColor="@color/texto"
+                android:textSize="16dp"
+                app:backgroundTint="@color/colorBotones"
+                app:cornerRadius="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfoServicio" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 data class clsServicio(
     @SerializedName("id") val id: Int,
-    @SerializedName("titulo") val titulo: String,
-    @SerializedName("descripcion") val descripcion: String,
+    @SerializedName(value = "titulo", alternate = ["TITULO", "Titulo"])
+    val titulo: String,
+
+    @SerializedName(value = "descripcion", alternate = ["DESCRIPCION", "Descripcion"])
+    val descripcion: String,
     @SerializedName("imagen") val imagen: String
 )

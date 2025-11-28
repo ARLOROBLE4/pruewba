@@ -13,7 +13,7 @@ import com.example.pruewba.Modelo.ServiciosModel
 import com.example.pruewba.Modelo.clsServicio
 import com.example.pruewba.Presentador.Contratos.ServiciosContract
 import com.example.pruewba.R
-import com.example.pruewba.Presentador.ServiciosPresenter // Importación necesaria
+import com.example.pruewba.Presentador.ServiciosPresenter
 
 class Servicios : AppCompatActivity(), ServiciosContract.View {
     private lateinit var rcvServicios: RecyclerView
@@ -38,7 +38,7 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         // Configurar RecyclerView
         rcvServicios.layoutManager = LinearLayoutManager(this)
 
-        // Iniciar la carga de datos
+        // 🛑 Lógica similar a loadInitialData() de MainActivity: iniciar la carga
         presenter.loadServices()
     }
 
@@ -50,9 +50,8 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     // --- Implementación de ServiciosContract.View ---
 
     override fun displayServices(servicios: List<clsServicio>) {
-        // Crear e asignar el adaptador
+        // Muestra los datos en el RecyclerView
         val adapter = ServiciosAdapter(this, servicios) { servicio ->
-            // Manejar el clic delegando al Presenter
             presenter.handleServiceClick(servicio)
         }
         rcvServicios.adapter = adapter
@@ -63,7 +62,7 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun navigateToServiceDetail(servicio: clsServicio) {
-        // Navegar a Vista de Detalle (Activity nueva que debes crear: ServicioDetalle.kt)
+        // Navegar a la Activity de detalle, pasando todos los datos
         val intent = Intent(this, ServicioDetalle::class.java).apply {
             putExtra("id", servicio.id)
             putExtra("titulo", servicio.titulo)

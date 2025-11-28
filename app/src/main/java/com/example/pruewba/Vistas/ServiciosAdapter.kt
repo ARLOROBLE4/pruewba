@@ -1,7 +1,6 @@
 package com.example.pruewba.Vistas
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.example.pruewba.R
 class ServiciosAdapter(
     private val context: Context,
     private val listaServicios: List<clsServicio>,
-    private val onServiceClickListener: (clsServicio) -> Unit // Listener para el click
+    private val onServiceClickListener: (clsServicio) -> Unit
 ) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
 
     // URL base para las imágenes de servicios (Ajustar si es necesario)
@@ -39,18 +38,18 @@ class ServiciosAdapter(
     override fun onBindViewHolder(holder: ServicioViewHolder, position: Int) {
         val servicio = listaServicios[position]
 
-        // 1. Cargar Texto
-        holder.txtServicio.text = servicio.titulo
-        holder.txtInfoServicio.text = servicio.descripcion
+        // 🛑 CORRECCIÓN DE NULOS: Asegurar que si el mapeo falla (resultando en null), se muestre ""
+        holder.txtServicio.text = servicio.titulo ?: "hola"
+        holder.txtInfoServicio.text = servicio.descripcion ?: "hola"
 
-        // 2. Cargar Imagen usando Glide
+        // La carga de imagen usa Glide
         Glide.with(context)
             .load(BASE_IMAGE_URL + servicio.imagen)
-            .placeholder(R.drawable.logopcstatus) // Placeholder temporal
-            .error(R.drawable.logopcstatus) // Imagen de error
+            .placeholder(R.drawable.logopcstatus)
+            .error(R.drawable.logopcstatus)
             .into(holder.imgServicio)
 
-        // 3. Manejar Click (para ir a Vista Detalle)
+        // Manejar Click
         holder.itemView.setOnClickListener {
             onServiceClickListener(servicio)
         }
