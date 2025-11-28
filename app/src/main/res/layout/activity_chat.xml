@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E">
+
+    <ImageView
+        android:id="@+id/imgCltLogo3"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        android:background="#040404"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopcstatus" />
+
+    <Button
+        android:id="@+id/btnConInicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnInicio"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo3" />
+
+    <Button
+        android:id="@+id/btnConConsulta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnServicios"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btnConInicio2"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo3" />
+
+    <Button
+        android:id="@+id/btnConPerfil2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/btnBvnConsulta"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvChat"
+        android:layout_width="407dp"
+        android:layout_height="480dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConInicio2" />
+
+    <EditText
+        android:id="@+id/edtChatMensaje"
+        android:layout_width="260dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcvChat" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="98dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="15dp"
+        android:text="Enviar"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@+id/edtChatMensaje"
+        app:layout_constraintTop_toBottomOf="@+id/rcvChat" />
+</androidx.constraintlayout.widget.ConstraintLayout>
