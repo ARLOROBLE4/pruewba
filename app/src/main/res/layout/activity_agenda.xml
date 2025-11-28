@@ -76,7 +76,7 @@
     <EditText
         android:id="@+id/agnNombre"
         android:layout_width="286dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="62dp"
         android:layout_marginTop="23dp"
         android:ems="10"
@@ -88,7 +88,7 @@
     <EditText
         android:id="@+id/agnFecha"
         android:layout_width="286dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="62dp"
         android:layout_marginTop="19dp"
         android:ems="10"
@@ -100,7 +100,7 @@
     <EditText
         android:id="@+id/agnAMaterno"
         android:layout_width="286dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="62dp"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -112,7 +112,7 @@
     <EditText
         android:id="@+id/agnAPaterno"
         android:layout_width="286dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="62dp"
         android:layout_marginTop="23dp"
         android:ems="10"
