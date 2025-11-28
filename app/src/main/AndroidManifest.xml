@@ -35,6 +35,9 @@
             android:exported="false"/>
         <activity android:name=".Vistas.Agenda"
             android:exported="false"/>
+        <activity android:name=".Vistas.Historial"
+            android:exported="false"/>
+
 
     </application>
 

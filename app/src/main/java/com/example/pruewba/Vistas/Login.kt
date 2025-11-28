@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.widget.Button
-import android.widget.CheckBox // Importar CheckBox
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,14 +14,16 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
+import com.example.pruewba.Modelo.SesionManager // 🛑 Importar SessionManager
 import com.example.pruewba.R
 
 class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnAcceder: Button
-    private lateinit var ckbPassword: CheckBox // 🛑 NUEVO: CheckBox
+    private lateinit var ckbPassword: CheckBox
     private lateinit var presenter: LoginContract.Presentador
+    private lateinit var sessionManager: SesionManager // 🛑 NUEVO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,22 +38,20 @@ class Login : AppCompatActivity(), LoginContract.View {
         etEmail = findViewById(R.id.edtLoginEmail)
         etPassword = findViewById(R.id.edtLoginPassword)
         btnAcceder = findViewById(R.id.btnLoguear)
-        ckbPassword = findViewById(R.id.ckbPassword) // 🛑 Mapeo del CheckBox
+        ckbPassword = findViewById(R.id.ckbPassword)
 
-        // 🛑 Lógica para Mostrar/Ocultar Contraseña
+        sessionManager = SesionManager(this) // 🛑 Inicializar SessionManager
+
         ckbPassword.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                // Si el CheckBox está marcado, mostrar texto normal (desactivar máscara)
                 etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             } else {
-                // Si está desmarcado, aplicar la máscara de contraseña
                 etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             }
-            // Mover el cursor al final del texto (para evitar que se reinicie al cambiar el InputType)
             etPassword.setSelection(etPassword.text.length)
         }
 
-        presenter = LoginPresenter(accesoModel())
+        presenter = LoginPresenter(accesoModel(), sessionManager) // 🛑 Pasar SessionManager
         presenter.attachView(this)
 
         btnAcceder.setOnClickListener {
@@ -66,8 +66,6 @@ class Login : AppCompatActivity(), LoginContract.View {
         super.onDestroy()
     }
 
-    // --- Implementación de LoginContract.View (sin cambios) ---
-
     override fun showLoginSuccess() {
         Toast.makeText(this, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
     }
@@ -77,7 +75,8 @@ class Login : AppCompatActivity(), LoginContract.View {
     }
 
     override fun navigateToConsultaScreen() {
-        val intent = Intent(this, Consulta::class.java)
+        // 🛑 Redirige a Historial después de un login exitoso
+        val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()
     }

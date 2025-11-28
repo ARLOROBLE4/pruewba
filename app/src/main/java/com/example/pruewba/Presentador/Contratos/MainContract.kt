@@ -4,7 +4,7 @@ interface MainContract {
     interface View {
         fun navigateToLoginScreen()
         fun navigateToServiciosScreen()
-        // NUEVOS MÉTODOS
+        fun navigateToHistorialScreen() // 🛑 NUEVO
         fun showDatosInicio(titulo: String, descripcion: String)
         fun loadVideo(videoFileName: String)
         fun showDataError(message: String)
@@ -15,7 +15,6 @@ interface MainContract {
         fun detachView()
         fun handleConsultaEquipoClick()
         fun handleServiciosClick()
-        // NUEVO MÉTODO
         fun loadInitialData()
     }
 }

@@ -12,10 +12,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.media3.ui.PlayerView
 import com.example.pruewba.Presentador.Contratos.MainContract
 import com.example.pruewba.Presentador.MainPresenter
 import com.example.pruewba.Modelo.inicioModel
+import com.example.pruewba.Modelo.SesionManager // 🛑 Importar SessionManager
 import com.example.pruewba.R
 
 
@@ -23,14 +23,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     private lateinit var btnBvnServicios: Button
     private lateinit var btnBvnConsulta: Button
-    // NUEVAS VISTAS:
     private lateinit var vdEmpresa: VideoView
     private lateinit var txtBvnPublicidad3: TextView
     private lateinit var txtBvnInfoPubli3: TextView
 
     private lateinit var presenter: MainContract.Presentador
+    private lateinit var sessionManager: SesionManager // 🛑 NUEVO
 
-    // URL base para el directorio de videos (Ajustar según tu servidor)
     private val BASE_VIDEO_URL = "https://pcextreme.grupoctic.com/appMovil/PCStatus/videos/"
 
 
@@ -53,14 +52,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         txtBvnInfoPubli3 = findViewById(R.id.txtBvnInfoPubli3)
 
 
-        // 2. Inicialización del Presenter (usando el nuevo modelo)
-        presenter = MainPresenter(inicioModel())
+        // 2. Inicialización del Presenter
+        sessionManager = SesionManager(this) // 🛑 Inicializar SessionManager
+        presenter = MainPresenter(inicioModel(), sessionManager) // 🛑 Pasar SessionManager
         presenter.attachView(this)
 
         // 3. Carga de datos de la API al iniciar la Activity
         presenter.loadInitialData()
 
-        // 4. Configuración de Listeners (existentes)
+        // 4. Configuración de Listeners
         btnBvnConsulta.setOnClickListener{
             presenter.handleConsultaEquipoClick()
         }
@@ -71,13 +71,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     override fun onResume() {
         super.onResume()
-        // Asegurarse de que el video se reanude al volver a la Activity
         vdEmpresa.start()
     }
 
     override fun onPause() {
         super.onPause()
-        // Pausar el video al salir de la Activity
         vdEmpresa.pause()
     }
 
@@ -99,10 +97,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         startActivity(intent)
     }
 
+    // 🛑 NUEVO: Implementación para navegar a Historial
+    override fun navigateToHistorialScreen() {
+        val intent = Intent(this, Historial::class.java)
+        startActivity(intent)
+    }
+
     override fun showDatosInicio(titulo: String, descripcion: String) {
-        // Muestra los datos de la tabla tbl_inicio en los TextViews
-        txtBvnPublicidad3.text = titulo // Campo titulo
-        txtBvnInfoPubli3.text = descripcion // Campo descripcion
+        txtBvnPublicidad3.text = titulo
+        txtBvnInfoPubli3.text = descripcion
     }
 
     override fun showDataError(message: String) {
@@ -115,20 +118,18 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             return
         }
 
-        // Construye la URI completa
         val videoPath = Uri.parse(BASE_VIDEO_URL + videoFileName)
 
         vdEmpresa.setVideoURI(videoPath)
 
-        // Configuración para la reproducción en bucle (continuamente)
         vdEmpresa.setOnPreparedListener { mp ->
-            mp.isLooping = true // Habilita el bucle
-            vdEmpresa.start() // Inicia la reproducción
+            mp.isLooping = true
+            vdEmpresa.start()
         }
 
         vdEmpresa.setOnErrorListener { mp, what, extra ->
             showDataError("Error al reproducir el video (Code: $what)")
-            true // Indica que el error fue manejado
+            true
         }
     }
 }
