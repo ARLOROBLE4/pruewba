@@ -17,6 +17,7 @@
     <string name="edtRegistroEmail">Email</string>
     <string name="btnSrvAgenda">Enviar</string>
     <string name="edtRegistroPassword">Contraseña</string>
+    <string name="default_notification_channel_id" translatable="false">estado_equipo_channel</string>
 
     <string name="txtBnvAgendar">Agendar</string>
     <string name="txtBnvInfoPubli">Mantenimiento premium con materiales de la mejor calidad, cotizaciones y servicios de ensambles\nVisita nuestro establecimiento</string>

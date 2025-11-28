@@ -15,14 +15,14 @@ import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
 import com.example.pruewba.Modelo.SesionManager
-import com.example.pruewba.R
+import com.example.pruewba.R // 🛑 Importar FCM
 
 class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnAcceder: Button
     private lateinit var ckbPassword: CheckBox
-    private lateinit var btnRegresar: Button // 🛑 NUEVO: Botón Regresar
+    private lateinit var btnRegresar: Button
     private lateinit var presenter: LoginContract.Presentador
     private lateinit var sessionManager: SesionManager
 
@@ -41,11 +41,11 @@ class Login : AppCompatActivity(), LoginContract.View {
         etPassword = findViewById(R.id.edtLoginPassword)
         btnAcceder = findViewById(R.id.btnLoguear)
         ckbPassword = findViewById(R.id.ckbPassword)
-        btnRegresar = findViewById(R.id.btnRegresar) // 🛑 NUEVO: Mapeo
+        btnRegresar = findViewById(R.id.btnRegresar)
 
         sessionManager = SesionManager(this)
 
-        // 2. Lógica del Checkbox
+        // 2. Lógica del Checkbox (Mostrar/Ocultar Contraseña)
         ckbPassword.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
@@ -68,7 +68,7 @@ class Login : AppCompatActivity(), LoginContract.View {
             presenter.handleLoginButtonClick(email, password)
         }
 
-        // 🛑 NUEVO: Listener para Regresar
+        // Listener para Regresar
         btnRegresar.setOnClickListener {
             navigateToMainActivity()
         }
@@ -91,12 +91,13 @@ class Login : AppCompatActivity(), LoginContract.View {
 
     override fun navigateToConsultaScreen() {
         // Redirige a Historial después de un login exitoso
+
+
         val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()
     }
 
-    // 🛑 NUEVO: Método de Navegación a MainActivity
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

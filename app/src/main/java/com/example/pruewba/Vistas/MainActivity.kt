@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,20 +18,22 @@ import com.example.pruewba.Modelo.inicioModel
 import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.R
 
+// Nota: Se elimina la importación de VideoView
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     private lateinit var btnBvnServicios: Button
     private lateinit var btnBvnConsulta: Button
-    private lateinit var btnBvnChat: Button
+    // 🛑 ELIMINADO: private lateinit var btnBvnChat: Button
     private lateinit var btnCerrarSesion: Button
-    private lateinit var vdEmpresa: VideoView
+    // 🛑 ELIMINADO: private lateinit var vdEmpresa: VideoView
     private lateinit var txtBvnPublicidad3: TextView
     private lateinit var txtBvnInfoPubli3: TextView
 
     private lateinit var presenter: MainContract.Presentador
     private lateinit var sessionManager: SesionManager
 
+    // URL base para el directorio de videos (se mantiene por si se usa en otro lado)
     private val BASE_VIDEO_URL = "https://pcextreme.grupoctic.com/appMovil/PCStatus/videos/"
 
 
@@ -51,15 +52,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         // 1. Inicializar Vistas
         btnBvnServicios = findViewById(R.id.btnBvnServicios)
         btnBvnConsulta = findViewById(R.id.btnBvnConsulta)
-        btnBvnChat = findViewById(R.id.btnBvnChat)
+        // 🛑 ELIMINADO: btnBvnChat = findViewById(R.id.btnBvnChat)
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
-        vdEmpresa = findViewById(R.id.vdEmpresa)
+        // 🛑 ELIMINADO: vdEmpresa = findViewById(R.id.vdEmpresa)
         txtBvnPublicidad3 = findViewById(R.id.txtBvnPublicidad3)
         txtBvnInfoPubli3 = findViewById(R.id.txtBvnInfoPubli3)
 
         // 2. Inicializar Presenter y SessionManager
         sessionManager = SesionManager(this)
-        // 🛑 CORRECCIÓN: Pasar ambos argumentos al constructor
         presenter = MainPresenter(inicioModel(), sessionManager)
         presenter.attachView(this)
 
@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         // 4. Configurar Listeners
 
-        // Botón de Consulta
         btnBvnConsulta.setOnClickListener {
             presenter.handleConsultaEquipoClick()
         }
@@ -82,11 +81,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             handleLogout()
         }
 
-        // Listener para Chat
-        btnBvnChat.setOnClickListener {
-            val intent = Intent(this, Chat::class.java)
-            startActivity(intent)
-        }
+        // 🛑 ELIMINADO: Listener para Chat
 
         // 5. Configurar visibilidad inicial de los botones sensibles a la sesión
         setupSessionButtonsVisibility()
@@ -95,31 +90,30 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onResume() {
         super.onResume()
         setupSessionButtonsVisibility()
-        vdEmpresa.start()
+        // 🛑 ELIMINADO: vdEmpresa.start()
     }
 
     override fun onPause() {
         super.onPause()
-        vdEmpresa.pause()
+        // 🛑 ELIMINADO: vdEmpresa.pause()
     }
 
-    // 🛑 Lógica para controlar la visibilidad de los botones
+    // 🛑 Lógica para controlar la visibilidad (solo queda btnCerrarSesion)
     private fun setupSessionButtonsVisibility() {
         if (sessionManager.isLoggedIn()) {
-            btnBvnChat.visibility = View.VISIBLE
+            // 🛑 btnBvnChat ELIMINADO de aquí
             btnCerrarSesion.visibility = View.VISIBLE
         } else {
-            btnBvnChat.visibility = View.GONE
+            // 🛑 btnBvnChat ELIMINADO de aquí
             btnCerrarSesion.visibility = View.GONE
         }
     }
 
     // 🛑 Lógica de Cierre de Sesión
     private fun handleLogout() {
-        sessionManager.logout() // Borra la sesión
+        sessionManager.logout()
         Toast.makeText(this, "Sesión cerrada con éxito.", Toast.LENGTH_SHORT).show()
 
-        // Redirige a Login y limpia el stack de actividades
         val intent = Intent(this, Login::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -128,7 +122,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun onDestroy() {
-        vdEmpresa.stopPlayback()
+        // 🛑 ELIMINADO: vdEmpresa.stopPlayback()
         presenter.detachView()
         super.onDestroy()
     }
@@ -160,22 +154,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun loadVideo(videoFileName: String) {
-        if (videoFileName.isNullOrEmpty()) {
-            showDataError("La URL del video está vacía.")
-            return
-        }
-
-        val videoPath = Uri.parse(BASE_VIDEO_URL + videoFileName)
-        vdEmpresa.setVideoURI(videoPath)
-
-        vdEmpresa.setOnPreparedListener { mp ->
-            mp.isLooping = true
-            vdEmpresa.start()
-        }
-
-        vdEmpresa.setOnErrorListener { mp, what, extra ->
-            Toast.makeText(this, "Error al cargar video: $what", Toast.LENGTH_LONG).show()
-            true
+        if (!videoFileName.isNullOrEmpty()) {
         }
     }
 }

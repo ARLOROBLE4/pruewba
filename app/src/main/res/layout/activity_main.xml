@@ -65,11 +65,11 @@
         android:layout_width="355dp"
         android:layout_height="202dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBvnChat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -112,40 +112,29 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnBvnChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="34dp"
-        android:text="@string/btnBvnChat"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
-        app:backgroundTint="@color/colorBotones"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <VideoView
-        android:id="@+id/vdEmpresa"
-        android:layout_width="293dp"
-        android:layout_height="206dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio" />
-
-    <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="27dp"
         android:text="Cerrar sesion"
         android:textColor="@color/texto"
         android:textSize="16dp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="321dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
+        app:srcCompat="@drawable/logo_empresa_pcextreme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

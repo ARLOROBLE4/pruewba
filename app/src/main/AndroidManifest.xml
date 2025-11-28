@@ -35,8 +35,6 @@
             android:exported="false"/>
         <activity android:name=".Vistas.Historial"
             android:exported="false"/>
-        <activity android:name=".Vistas.Chat"
-            android:exported="false"/>
         <activity android:name=".Vistas.ConsultaDetalle"
             android:exported="false"/>
 

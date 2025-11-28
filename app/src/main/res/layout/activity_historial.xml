@@ -62,7 +62,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvHistorial"
         android:layout_width="409dp"
-        android:layout_height="569dp"
+        android:layout_height="630dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="4dp"
