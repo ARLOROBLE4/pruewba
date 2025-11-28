@@ -7,43 +7,17 @@
     android:background="#1E1E1E">
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="148dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txtHstDispositivo"
-        android:textColor="@color/texto"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTipoEquipo"
-        android:layout_width="190dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textColor="@color/texto"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/txtMarca"
         android:layout_width="190dp"
         android:layout_height="45dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="14dp"
         android:text=""
         android:textColor="@color/texto"
         android:textSize="18sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/txtTipoEquipo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtModelo"
@@ -102,13 +76,13 @@
         android:layout_width="148dp"
         android:layout_height="45dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="14dp"
         android:text="@string/txtHstMarca"
         android:textColor="@color/texto"
         android:textSize="18sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnVerMas"

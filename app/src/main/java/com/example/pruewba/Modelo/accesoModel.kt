@@ -21,7 +21,6 @@ class accesoModel {
     fun iniciarSesion(
         email: String,
         password: String,
-        // 🛑 El callback ahora incluye el user_id
         onResult: (isSuccess: Boolean, message: String, userId: Int?) -> Unit
     ) {
 
@@ -33,9 +32,9 @@ class accesoModel {
                         val respuesta = datos?.firstOrNull()
                         val success = respuesta?.Estado == "Correcto"
                         val message = respuesta?.Salida ?: "Respuesta vacía"
-                        val userId = respuesta?.user_id // 🛑 Obtener el user_id
+                        val userId = respuesta?.user_id
 
-                        onResult(success, message, userId) // 🛑 Devolver el user_id
+                        onResult(success, message, userId)
                     } else {
                         val errorBody = response.errorBody()?.string() ?: "Error de servidor desconocido"
                         onResult(false, "Error en la respuesta: $errorBody", null)

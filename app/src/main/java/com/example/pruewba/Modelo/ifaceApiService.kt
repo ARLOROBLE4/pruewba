@@ -5,6 +5,7 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ifaceApiService {
 
@@ -16,10 +17,14 @@ interface ifaceApiService {
         @Field("password") password: String
     ): Call<List<clsDatosRespuesta>>
 
-    // NUEVO MÉTODO para obtener los datos de la pantalla de inicio
-    @GET("apiInicio.php") // Asumiendo que la nueva API se llama apiInicio.php
+    @GET("apiInicio.php")
     fun obtenerDatosInicio(): Call<List<clsDatosInicio>>
-    // NUEVO MÉTODO: Obtener lista de servicios
+
     @GET("apiServicios.php")
     fun obtenerServicios(): Call<List<clsServicio>>
+
+    @GET("apiHistorial.php")
+    fun obtenerHistorialCliente(
+        @Query("user_id") userId: Int
+    ): Call<List<clsDispositivoHistorial>>
 }

@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
-import com.example.pruewba.Modelo.SesionManager // 🛑 Importar SessionManager
+import com.example.pruewba.Modelo.SesionManager // 🛑 Importar tu SesionManager
 import com.example.pruewba.R
 
 class Login : AppCompatActivity(), LoginContract.View {
@@ -23,7 +23,7 @@ class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var btnAcceder: Button
     private lateinit var ckbPassword: CheckBox
     private lateinit var presenter: LoginContract.Presentador
-    private lateinit var sessionManager: SesionManager // 🛑 NUEVO
+    private lateinit var sessionManager: SesionManager // 🛑 USANDO tu SesionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class Login : AppCompatActivity(), LoginContract.View {
         btnAcceder = findViewById(R.id.btnLoguear)
         ckbPassword = findViewById(R.id.ckbPassword)
 
-        sessionManager = SesionManager(this) // 🛑 Inicializar SessionManager
+        sessionManager = SesionManager(this) // 🛑 USANDO tu SesionManager
 
         ckbPassword.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -75,7 +75,7 @@ class Login : AppCompatActivity(), LoginContract.View {
     }
 
     override fun navigateToConsultaScreen() {
-        // 🛑 Redirige a Historial después de un login exitoso
+        // Redirige a Historial después de un login exitoso
         val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()

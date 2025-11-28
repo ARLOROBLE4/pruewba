@@ -1,12 +1,12 @@
 package com.example.pruewba.Presentador
 
-import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.Presentador.Contratos.MainContract
-import com.example.pruewba.Modelo.inicioModel// 🛑 Importar SessionManager
+import com.example.pruewba.Modelo.inicioModel
+import com.example.pruewba.Modelo.SesionManager
 
 class MainPresenter(
     private val modeloInicio: inicioModel,
-    private val sessionManager: SesionManager // 🛑 NUEVO: Inyectar SessionManager
+    private val sessionManager: SesionManager // 🛑 USANDO tu SesionManager
 ) : MainContract.Presentador {
     private var view: MainContract.View? = null
 
@@ -18,10 +18,13 @@ class MainPresenter(
         this.view = null
     }
 
+    // Lógica para decidir a dónde ir según la sesión
     override fun handleConsultaEquipoClick() {
-        if (sessionManager.isLoggedIn()) { // 🛑 Verificar estado de sesión
+        if (sessionManager.isLoggedIn()) {
+            // Si la sesión está activa, ir a Historial
             view?.navigateToHistorialScreen()
         } else {
+            // Si no está activa, ir a Login
             view?.navigateToLoginScreen()
         }
     }
