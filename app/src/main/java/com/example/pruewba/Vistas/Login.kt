@@ -15,7 +15,7 @@ import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
 import com.example.pruewba.Modelo.SesionManager
-import com.example.pruewba.R // 🛑 Importar FCM
+import com.example.pruewba.R
 
 class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var etEmail: EditText
@@ -78,9 +78,6 @@ class Login : AppCompatActivity(), LoginContract.View {
         presenter.detachView()
         super.onDestroy()
     }
-
-    // --- Implementación de LoginContract.View ---
-
     override fun showLoginSuccess() {
         Toast.makeText(this, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
     }
@@ -90,9 +87,6 @@ class Login : AppCompatActivity(), LoginContract.View {
     }
 
     override fun navigateToConsultaScreen() {
-        // Redirige a Historial después de un login exitoso
-
-
         val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()
