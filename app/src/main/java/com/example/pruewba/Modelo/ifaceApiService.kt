@@ -27,4 +27,14 @@ interface ifaceApiService {
     fun obtenerHistorialCliente(
         @Query("user_id") userId: Int
     ): Call<List<clsDispositivoHistorial>>
+
+    @FormUrlEncoded
+    @POST("apiAgenda.php")
+    fun agendarCita(
+        @Field("nombreCitado") nombreCitado: String,
+        @Field("aPaterno") aPaterno: String,
+        @Field("aMaterno") aMaterno: String,
+        @Field("fechaCita") fechaCita: String,
+        @Field("horaCita") horaCita: String
+    ): Call<List<clsDatosRespuesta>>
 }
