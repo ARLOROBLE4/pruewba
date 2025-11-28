@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E">
+
+    <TextView
+        android:id="@+id/txtConInfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="54dp"
+        android:text="Ingresa los siguientes datos"
+        android:textColor="@color/texto"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConConsulta4" />
+
+    <Button
+        android:id="@+id/btnConConsulta4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/btnBvnConsulta"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo5" />
+
+    <Button
+        android:id="@+id/btnConPerfil4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnServicios"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btnConInicio4"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo5" />
+
+    <Button
+        android:id="@+id/btnConInicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/btnBvnInicio"
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCltLogo5" />
+
+    <ImageView
+        android:id="@+id/imgCltLogo5"
+        android:layout_width="477dp"
+        android:layout_height="87dp"
+        android:background="#040404"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopcstatus" />
+
+    <EditText
+        android:id="@+id/agnNombre"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConInfo3" />
+
+    <EditText
+        android:id="@+id/agnFecha"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agnAMaterno" />
+
+    <EditText
+        android:id="@+id/agnAMaterno"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agnAPaterno" />
+
+    <EditText
+        android:id="@+id/agnAPaterno"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agnNombre" />
+</androidx.constraintlayout.widget.ConstraintLayout>
