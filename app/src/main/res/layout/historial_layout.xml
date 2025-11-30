@@ -37,18 +37,6 @@
                 app:layout_constraintStart_toEndOf="@+id/textView12"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imgNotificacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="368dp"
-
-                android:layout_marginTop="4dp"
-                android:src="@drawable/outline_add_alert_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#FF5722" />
-
             <TextView
                 android:id="@+id/txtMarca"
                 android:layout_width="190dp"
