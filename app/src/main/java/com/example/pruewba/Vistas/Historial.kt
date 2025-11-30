@@ -61,7 +61,11 @@ class Historial : AppCompatActivity(), HistorialContract.View {
             validateAndNavigateToHistorial() // Va a Historial o Login
         }
     }
-
+        override fun onResume() {
+            super.onResume()
+            // Esto fuerza a recargar el historial cada vez que la pantalla aparece
+            presenter.loadUserHistorial()
+        }
     override fun onDestroy() {
         presenter.detachView()
         super.onDestroy()
@@ -76,11 +80,17 @@ class Historial : AppCompatActivity(), HistorialContract.View {
     }
 
     override fun displayHistorial(dispositivos: List<clsDispositivoHistorial>) {
-        if (dispositivos.isEmpty()) {
+        // 1. Filtrar en el cliente (Parche de seguridad)
+        // Elimina cualquier dispositivo que tenga ID 0 o datos vacíos que pudieron colarse
+        val listaLimpia = dispositivos.filter { it.idRegistro != 0 && it.modelo.isNotEmpty() }
+
+        if (listaLimpia.isEmpty()) {
             showLoadingError("No tienes equipos registrados.")
+            // Importante: Asignar un adaptador vacío para borrar lo que hubiera antes
+            rcvHistorial.adapter = HistorialAdapter(emptyList()) {}
             return
         }
-        val adapter = HistorialAdapter(dispositivos) { dispositivo ->
+        val adapter = HistorialAdapter(listaLimpia) { dispositivo ->
             presenter.handleVerMasClick(dispositivo)
         }
         rcvHistorial.adapter = adapter

@@ -13,7 +13,7 @@ class HistorialPresenter(
 
     override fun attachView(view: HistorialContract.View) {
         this.view = view
-        loadUserHistorial()
+        //loadUserHistorial()
     }
 
     override fun detachView() {

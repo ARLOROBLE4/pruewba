@@ -27,13 +27,17 @@ class HistorialModel {
             return
         }
 
-        apiService.obtenerHistorialCliente(userId).enqueue(object : Callback<List<clsDispositivoHistorial>> {
+        apiService.obtenerHistorialCliente(userId,System.currentTimeMillis()).enqueue(object : Callback<List<clsDispositivoHistorial>> {
             override fun onResponse(
                 call: Call<List<clsDispositivoHistorial>>,
                 response: Response<List<clsDispositivoHistorial>>
             ) {
                 if (response.isSuccessful) {
                     val dispositivos = response.body()
+                    android.util.Log.d("API_DEBUG", "Recibidos ${dispositivos?.size} dispositivos")
+                    dispositivos?.forEach {
+                        android.util.Log.d("API_DEBUG", "Item: ID=${it.idRegistro}, Modelo=${it.modelo}")
+                    }
                     if (dispositivos != null) {
                         onResult(dispositivos, null)
                     } else {

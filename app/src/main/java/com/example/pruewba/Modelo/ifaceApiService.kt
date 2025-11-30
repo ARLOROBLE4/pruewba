@@ -25,7 +25,8 @@ interface ifaceApiService {
 
     @GET("apiHistorial.php")
     fun obtenerHistorialCliente(
-        @Query("user_id") userId: Int
+        @Query("user_id") userId: Int,
+        @Query("no_cache") timestamp: Long
     ): Call<List<clsDispositivoHistorial>>
 
     @FormUrlEncoded
