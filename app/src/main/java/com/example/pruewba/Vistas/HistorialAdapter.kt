@@ -14,11 +14,14 @@ class HistorialAdapter(
     private val onVerMasClickListener: (clsDispositivoHistorial) -> Unit
 ) : RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
 
+    // (Se eliminó la variable idResaltado)
+
     class HistorialViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtMarca: TextView = itemView.findViewById(R.id.txtMarca)
         val txtModelo: TextView = itemView.findViewById(R.id.txtModelo)
         val txtEstado: TextView = itemView.findViewById(R.id.txtEstado)
         val btnVerMas: Button = itemView.findViewById(R.id.btnVerMas)
+        // (Se eliminó la referencia a imgNotificacion)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistorialViewHolder {
@@ -32,9 +35,12 @@ class HistorialAdapter(
 
     override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
         val dispositivo = listaDispositivos[position]
+
         holder.txtMarca.text = dispositivo.marca
         holder.txtModelo.text = dispositivo.modelo
         holder.txtEstado.text = dispositivo.estado
+
+        // (Se eliminó la lógica if/else del icono visible/gone)
 
         holder.btnVerMas.setOnClickListener {
             onVerMasClickListener(dispositivo)

@@ -46,5 +46,9 @@ interface ifaceApiService {
         @Field("user_id") userId: Int,
         @Field("token") token: String
     ): Call<List<clsDatosRespuesta>>
-
+    @FormUrlEncoded
+    @POST("apiLogout.php")
+    fun cerrarSesionServidor(
+        @Field("user_id") userId: Int
+    ): Call<List<clsDatosRespuesta>>
 }

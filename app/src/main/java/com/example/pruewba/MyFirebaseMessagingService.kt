@@ -5,9 +5,11 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import com.example.pruewba.Modelo.FCMModel
 import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.Vistas.Historial
@@ -57,18 +59,25 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     // Construye y muestra la notificación
     private fun sendNotification(title: String?, body: String?, data: Map<String, String>) {
+        // Intent simple para abrir Historial
         val intent = Intent(this, Historial::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            data["registro_id"]?.let { putExtra("highlight_registro_id", it.toInt()) }
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
         }
 
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
+            this, 0, intent,
+            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val channelId = getString(R.string.default_notification_channel_id)
+
+        // Usamos BitmapFactory para el logo grande si quieres mantenerlo
+        val largeIconBitmap = android.graphics.BitmapFactory.decodeResource(resources, R.drawable.logopcstatus)
+
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.logoapp) // 🛑 Asegúrate de tener este drawable
+            .setSmallIcon(R.drawable.ic_stat_notificacion) // Tu icono blanco
+            .setColor(androidx.core.content.ContextCompat.getColor(this, R.color.color_corporativo))
+            .setLargeIcon(largeIconBitmap) // Tu logo a color
             .setContentTitle(title ?: "PC Status Update")
             .setContentText(body)
             .setAutoCancel(true)

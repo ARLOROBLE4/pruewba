@@ -9,11 +9,12 @@ class HistorialPresenter(
     private val model: HistorialModel,
     private val sessionManager: SesionManager
 ) : HistorialContract.Presentador {
+
     private var view: HistorialContract.View? = null
 
     override fun attachView(view: HistorialContract.View) {
         this.view = view
-        //loadUserHistorial()
+        // No cargamos aquí automáticamente, dejamos que el onResume de la vista lo haga
     }
 
     override fun detachView() {
@@ -24,15 +25,19 @@ class HistorialPresenter(
         val userId = sessionManager.getUserId()
 
         if (userId <= 0) {
-            view?.showLoadingError("Error: ID de usuario no válido. Por favor, inicie sesión nuevamente.")
+            view?.showLoadingError("Error de sesión. Por favor, vuelve a ingresar.")
             return
         }
 
+        // Llamada al modelo (Asumiendo que ya actualizaste el modelo para aceptar timestamp)
+        // Si tu modelo aún no lo acepta, usa solo `userId`
         model.obtenerHistorial(userId) { dispositivos, errorMessage ->
+            if (view == null) return@obtenerHistorial // Evitar crashes si la vista se cerró
+
             if (dispositivos != null) {
                 view?.displayHistorial(dispositivos)
             } else {
-                view?.showLoadingError(errorMessage ?: "Error desconocido al cargar el historial.")
+                view?.showLoadingError(errorMessage ?: "Error desconocido.")
             }
         }
     }

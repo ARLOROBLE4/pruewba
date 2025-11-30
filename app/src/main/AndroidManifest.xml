@@ -40,7 +40,15 @@
         <activity android:name=".Vistas.ConsultaDetalle"
             android:exported="false"/>
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_notificacion" />
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/color_corporativo" />
+
+        <service android:name=".MyFirebaseMessagingService" />
 
     </application>
 

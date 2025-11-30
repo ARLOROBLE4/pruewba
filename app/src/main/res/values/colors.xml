@@ -3,5 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="texto">#FFFFFFFF</color>
     <color name="colorBotones">#5BAE2A</color>
+    <color name="color_corporativo">#5BAE2A</color>
     <color name="hints">#B6B3B3</color>
 </resources>

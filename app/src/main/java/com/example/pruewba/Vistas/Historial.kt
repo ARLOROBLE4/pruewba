@@ -38,7 +38,6 @@ class Historial : AppCompatActivity(), HistorialContract.View {
             insets
         }
 
-        // 1. Mapeo del RecyclerView y Botones
         rcvHistorial = findViewById(R.id.rcvHistorial)
         rcvHistorial.layoutManager = LinearLayoutManager(this)
 
@@ -46,58 +45,49 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         btnConPerfil3 = findViewById(R.id.btnConPerfil3)
         btnConConsulta3 = findViewById(R.id.btnConConsulta3)
 
-        // 2. Inicializar Presenter y SessionManager
+        // Inicializar
         sessionManager = SesionManager(this)
         val historialModel = HistorialModel()
         presenter = HistorialPresenter(historialModel, sessionManager)
-
         presenter.attachView(this)
 
-        // 3. Listeners de Navegación Global
+        // Listeners
         btnConInicio3.setOnClickListener { navigateToMainActivity() }
         btnConPerfil3.setOnClickListener { navigateToServiciosActivity() }
-
         btnConConsulta3.setOnClickListener {
-            validateAndNavigateToHistorial() // Va a Historial o Login
+            // Ya estamos aquí
         }
     }
-        override fun onResume() {
-            super.onResume()
-            // Esto fuerza a recargar el historial cada vez que la pantalla aparece
-            presenter.loadUserHistorial()
-        }
+
+    // MANTENEMOS ESTO: Recarga los datos al entrar o volver a la app
+    override fun onResume() {
+        super.onResume()
+        presenter.loadUserHistorial()
+    }
+
+    // ELIMINAMOS onNewIntent y verificarIntentDeNotificacion complejos
+
     override fun onDestroy() {
         presenter.detachView()
         super.onDestroy()
     }
 
-    private fun validateAndNavigateToHistorial() {
-        if (sessionManager.isLoggedIn()) {
-            Toast.makeText(this, "Ya estás viendo el historial.", Toast.LENGTH_SHORT).show()
-        } else {
-            startActivity(Intent(this, Login::class.java))
-        }
-    }
-
     override fun displayHistorial(dispositivos: List<clsDispositivoHistorial>) {
-        // 1. Filtrar en el cliente (Parche de seguridad)
-        // Elimina cualquier dispositivo que tenga ID 0 o datos vacíos que pudieron colarse
-        val listaLimpia = dispositivos.filter { it.idRegistro != 0 && it.modelo.isNotEmpty() }
-
-        if (listaLimpia.isEmpty()) {
+        if (dispositivos.isEmpty()) {
             showLoadingError("No tienes equipos registrados.")
-            // Importante: Asignar un adaptador vacío para borrar lo que hubiera antes
             rcvHistorial.adapter = HistorialAdapter(emptyList()) {}
             return
         }
-        val adapter = HistorialAdapter(listaLimpia) { dispositivo ->
+
+        // Adaptador simple sin IDs resaltados
+        val adapter = HistorialAdapter(dispositivos) { dispositivo ->
             presenter.handleVerMasClick(dispositivo)
         }
         rcvHistorial.adapter = adapter
     }
 
     override fun showLoadingError(message: String) {
-        Toast.makeText(this, "Error al cargar historial: $message", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     override fun navigateToDetalleConsulta(dispositivo: clsDispositivoHistorial) {
@@ -115,15 +105,11 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         startActivity(intent)
     }
 
-    // Métodos de navegación auxiliar
     private fun navigateToMainActivity() {
         startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
         finish()
     }
     private fun navigateToServiciosActivity() {
         startActivity(Intent(this, Servicios::class.java))
-    }
-    private fun navigateToConsultaActivity() {
-        // Redirigido a validateAndNavigateToHistorial()
     }
 }
