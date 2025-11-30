@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.viewpager2)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,4 +61,10 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
     implementation("androidx.media3:media3-exoplayer:1.X.X")
     implementation("androidx.media3:media3-ui:1.X.X")
+    implementation("androidx.biometric:biometric:1.1.0")
+    //implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
+    /*implementation("com.google.firebase:firebase-messaging")*/
 }

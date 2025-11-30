@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/txtConInfo3"
-        android:layout_width="304dp"
+        android:layout_width="300dp"
         android:layout_height="61dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="4dp"
         android:text=" "
         android:textColor="@color/texto"
         android:textSize="24sp"
@@ -79,12 +79,12 @@
         android:layout_width="286dp"
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
+        android:hint="Nombre del cliente"
         android:inputType="text"
         android:textColor="@color/texto"
         android:textSize="16dp"
-        android:hint="Nombre del cliente"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtConInfo3" />
 
@@ -93,10 +93,10 @@
         android:layout_width="286dp"
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Apellido Materno"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agnAPaterno" />
 
@@ -105,21 +105,35 @@
         android:layout_width="286dp"
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Apellido Paterno"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agnNombre" />
 
     <EditText
+        android:id="@+id/agnDetalles"
+        android:layout_width="286dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Describe el problema"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFechaCita" />
+
+    <EditText
         android:id="@+id/edtFechaCita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="24dp"
-        android:hint="DD/MM/AAAA"
         android:ems="10"
+        android:hint="DD/MM/AAAA"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agnAMaterno" />
@@ -129,25 +143,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="22dp"
         android:text="Guardar"
         android:textColor="@color/texto"
         android:textSize="16dp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtHora" />
+        app:layout_constraintTop_toBottomOf="@+id/agnDetalles" />
 
     <EditText
         android:id="@+id/edtHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Ejem: 16:00"
         android:inputType="time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtFechaCita" />
+        app:layout_constraintStart_toEndOf="@+id/edtFechaCita"
+        app:layout_constraintTop_toBottomOf="@+id/agnAMaterno" />
+
+    <Button
+        android:id="@+id/btnDictarDetalles"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:textColor="@color/texto"
+        android:textSize="16dp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="50dp"
+        app:layout_constraintStart_toEndOf="@+id/agnDetalles"
+        app:layout_constraintTop_toBottomOf="@+id/edtHora" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

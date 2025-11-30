@@ -35,7 +35,15 @@ interface ifaceApiService {
         @Field("aPaterno") aPaterno: String,
         @Field("aMaterno") aMaterno: String,
         @Field("fechaCita") fechaCita: String,
-        @Field("horaCita") horaCita: String
+        @Field("horaCita") horaCita: String,
+        @Field("detalles") detalles: String
+    ): Call<List<clsDatosRespuesta>>
+    // 🛑 NUEVO: Guardar el token de FCM
+    @FormUrlEncoded
+    @POST("apiFCM.php")
+    fun saveFCMToken(
+        @Field("user_id") userId: Int,
+        @Field("token") token: String
     ): Call<List<clsDatosRespuesta>>
 
 }

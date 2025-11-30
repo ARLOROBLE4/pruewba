@@ -3,6 +3,7 @@ package com.example.pruewba.Vistas
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -11,11 +12,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.pruewba.Modelo.FCMModel
 import com.example.pruewba.Presentador.Contratos.LoginContract
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.LoginPresenter
 import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.R
+import com.google.firebase.messaging.FirebaseMessaging
 
 class Login : AppCompatActivity(), LoginContract.View {
     private lateinit var etEmail: EditText
@@ -87,6 +90,20 @@ class Login : AppCompatActivity(), LoginContract.View {
     }
 
     override fun navigateToConsultaScreen() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val token = task.result
+                val userId = sessionManager.getUserId()
+
+                if (userId > 0 && token != null) {
+                    FCMModel().sendTokenToServer(userId, token) { isSuccess, message ->
+                        Log.d("LoginFCM", if (isSuccess) message else "Fallo al enviar token de FCM: $message")
+                    }
+                }
+            } else {
+                Log.e("LoginFCM", "Fallo al obtener el token de FCM", task.exception)
+            }
+        }
         val intent = Intent(this, Historial::class.java)
         startActivity(intent)
         finish()

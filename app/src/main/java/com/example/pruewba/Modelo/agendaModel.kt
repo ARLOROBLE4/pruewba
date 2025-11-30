@@ -24,6 +24,7 @@ class agendaModel {
         aMaterno: String,
         fechaCita: String,
         horaCita: String,
+        detalles: String,
         onResult: (isSuccess: Boolean, message: String) -> Unit
     ) {
         apiService.agendarCita(
@@ -31,7 +32,8 @@ class agendaModel {
             aPaterno = aPaterno,
             aMaterno = aMaterno,
             fechaCita = fechaCita,
-            horaCita = horaCita
+            horaCita = horaCita,
+            detalles = detalles
         ).enqueue(object : Callback<List<clsDatosRespuesta>> {
             override fun onResponse(call: Call<List<clsDatosRespuesta>>, response: Response<List<clsDatosRespuesta>>) {
                 if (response.isSuccessful) {

@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         sessionManager.logout()
         Toast.makeText(this, "Sesión cerrada con éxito.", Toast.LENGTH_SHORT).show()
 
-        val intent = Intent(this, Login::class.java).apply {
+        val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         startActivity(intent)

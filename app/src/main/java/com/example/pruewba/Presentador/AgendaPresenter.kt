@@ -27,6 +27,7 @@ class AgendaPresenter(
         val aMaterno = datos["aMaterno"] ?: ""
         val fechaCita = datos["fechaCita"] ?: ""
         val horaCita = datos["horaCita"] ?: ""
+        val detalles = datos["detalles"] ?: ""
 
         if (nombreCitado.isBlank() || fechaCita.isBlank() || horaCita.isBlank()) {
             view.showToast("Por favor, complete al menos el nombre, la fecha y la hora.")
@@ -40,7 +41,8 @@ class AgendaPresenter(
             aPaterno = aPaterno,
             aMaterno = aMaterno,
             fechaCita = fechaCita,
-            horaCita = horaCita
+            horaCita = horaCita,
+            detalles = detalles
         ) { isSuccess, message ->
             view.hideLoading()
             view.showToast(message)

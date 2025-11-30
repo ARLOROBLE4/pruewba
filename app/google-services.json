@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1002775011078",
+    "project_id": "pruewba-74dc3",
+    "storage_bucket": "pruewba-74dc3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002775011078:android:0de452e3ebfdcd95164887",
+        "android_client_info": {
+          "package_name": "com.example.pruewba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbObaFscYBEzdzuMLpBoKrJMbzbrmknzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
