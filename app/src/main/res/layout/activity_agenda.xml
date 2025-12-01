@@ -160,33 +160,29 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="#000000"
                 android:ems="10"
+                android:inputType="number"
                 android:hint="DD/MM/AAAA"
-                android:inputType="date"
+                android:maxLength="10"
                 android:textColor="#000000"
                 android:textColorHint="#555555"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/edtHora"
+                app:layout_constraintEnd_toStartOf="@+id/spnHora"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/agnAMaterno" />
 
-            <EditText
-                android:id="@+id/edtHora"
+            <Spinner
+                android:id="@+id/spnHora"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:backgroundTint="#000000"
-                android:ems="10"
-                android:hint="Hora (16:00)"
-                android:inputType="time"
                 android:textColor="#000000"
-                android:textColorHint="#555555"
-                android:textSize="16sp"
+                android:background="@android:drawable/btn_dropdown"
+                android:backgroundTint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/edtFechaCita"
                 app:layout_constraintTop_toBottomOf="@+id/agnAMaterno" />
-
             <EditText
                 android:id="@+id/agnDetalles"
                 android:layout_width="0dp"

@@ -9,12 +9,40 @@ class AgendaPresenter(
 
     private var view: AgendaContract.View? = null
 
+    // Definimos el horario base del negocio: 14:00 a 22:00
+    private val horarioBase = listOf(
+        "14:00", "15:00", "16:00", "17:00",
+        "18:00", "19:00", "20:00", "21:00", "22:00"
+    )
+
     override fun attachView(view: AgendaContract.View) {
         this.view = view
     }
 
     override fun detachView() {
         this.view = null
+    }
+
+    // NUEVO: Lógica para calcular disponibilidad
+    override fun loadAvailableHours(fecha: String) {
+        if (fecha.length < 10) return // No cargar si la fecha no está completa
+
+        view?.showLoading()
+        model.obtenerHorasOcupadas(fecha) { horasOcupadas ->
+            view?.hideLoading()
+
+            // Si hubo error o lista vacía, horasOcupadas es emptyList
+            val ocupadas = horasOcupadas ?: emptyList()
+
+            // Filtramos: Dejamos solo las horas base que NO estén en la lista de ocupadas
+            val disponibles = horarioBase.filter { !ocupadas.contains(it) }
+
+            if (disponibles.isEmpty()) {
+                view?.showToast("No hay horarios disponibles para esta fecha.")
+            }
+
+            view?.showAvailableHours(disponibles)
+        }
     }
 
     override fun handleGuardarCitaClick() {
@@ -29,8 +57,13 @@ class AgendaPresenter(
         val horaCita = datos["horaCita"] ?: ""
         val detalles = datos["detalles"] ?: ""
 
-        if (nombreCitado.isBlank() || fechaCita.isBlank() || horaCita.isBlank()) {
-            view.showToast("Por favor, complete al menos el nombre, la fecha y la hora.")
+        if (nombreCitado.isBlank() || fechaCita.isBlank()) {
+            view.showToast("Faltan datos (Nombre o Fecha).")
+            return
+        }
+
+        if (horaCita.isBlank()) {
+            view.showToast("Por favor selecciona un horario disponible.")
             return
         }
 

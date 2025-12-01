@@ -15,20 +15,16 @@ import com.example.pruewba.R
 class ServiciosAdapter(
     private val context: Context,
     private val listaServicios: List<clsServicio>,
-    // Listener para el clic en el ítem completo (para Detalle)
-    private val onServiceClickListener: (clsServicio) -> Unit,
-    // Listener para el clic en el botón Agendar
+    // Eliminamos el listener general de la tarjeta, solo dejamos el del botón
     private val onAgendarClickListener: (clsServicio) -> Unit
 ) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
 
-    // URL base para las imágenes (ajustar si es necesario)
     private val BASE_IMAGE_URL = "https://pcextreme.grupoctic.com/appWeb/aseets/"
 
     class ServicioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgServicio: ImageView = itemView.findViewById(R.id.imgServicio)
         val txtServicio: TextView = itemView.findViewById(R.id.txtServicio)
         val txtInfoServicio: TextView = itemView.findViewById(R.id.txtInfoServicio)
-        // Mapeo del botón Agendar
         val btnAgendar: Button = itemView.findViewById(R.id.btnAgendar)
     }
 
@@ -54,12 +50,10 @@ class ServiciosAdapter(
             .error(R.drawable.logopcstatus)
             .into(holder.imgServicio)
 
-        // 1. Manejar Clic en el ÍTEM COMPLETO (Detalle)
-        holder.itemView.setOnClickListener {
-            onServiceClickListener(servicio)
-        }
+        // ELIMINADO: holder.itemView.setOnClickListener { ... }
+        // Ya no hay acción al hacer clic en la tarjeta vacía.
 
-        // 2. Manejar Clic en el BOTÓN AGENDAR
+        // 2. Manejar Clic SOLO en el BOTÓN AGENDAR
         holder.btnAgendar.setOnClickListener {
             onAgendarClickListener(servicio)
         }

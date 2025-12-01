@@ -26,7 +26,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     private lateinit var btnBvnServicios2: Button
     private lateinit var btnBvnConsulta2: Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -77,12 +76,10 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun displayServices(servicios: List<clsServicio>) {
+        // CORRECCIÓN AQUÍ: Se eliminó el parámetro onServiceClickListener
         val adapter = ServiciosAdapter(
             context = this,
             listaServicios = servicios,
-            onServiceClickListener = { servicio ->
-                presenter.handleServiceClick(servicio)
-            },
             onAgendarClickListener = { servicio ->
                 presenter.handleAgendarClick(servicio)
             }
@@ -94,7 +91,10 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         Toast.makeText(this, "Error al cargar servicios: $message", Toast.LENGTH_LONG).show()
     }
 
+    // Este método ya no se invocará desde la lista, pero se deja por si el Presenter lo requiere en el futuro
+    // o puedes borrarlo si limpias el contrato.
     override fun navigateToServiceDetail(servicio: clsServicio) {
+        // Código desactivado visualmente desde el adaptador
         val intent = Intent(this, ServicioDetalle::class.java).apply {
             putExtra("id", servicio.id)
             putExtra("titulo", servicio.titulo)
@@ -116,8 +116,5 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     private fun navigateToMainActivity() {
         startActivity(Intent(this, MainActivity::class.java).apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP })
         finish()
-    }
-    private fun navigateToHistorialActivity() {
-        // Redirigido a validateAndNavigateToHistorial()
     }
 }

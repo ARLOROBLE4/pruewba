@@ -7,13 +7,19 @@ interface AgendaContract {
         fun showToast(message: String)
         fun clearForm()
         fun navigateBackToServices()
-        fun getDatosAgendamiento(): Map<String, String> // Obtiene los datos del formulario
-        fun getServicioTitulo(): String // Obtiene el título del servicio del Intent
+        fun getDatosAgendamiento(): Map<String, String>
+        fun getServicioTitulo(): String
+
+        // NUEVO: Método para llenar el Spinner
+        fun showAvailableHours(horas: List<String>)
     }
 
     interface Presentador {
         fun attachView(view: View)
         fun detachView()
         fun handleGuardarCitaClick()
+
+        // NUEVO: Método para solicitar carga de horas
+        fun loadAvailableHours(fecha: String)
     }
 }

@@ -29,6 +29,10 @@ interface ifaceApiService {
         @Query("no_cache") timestamp: Long
     ): Call<List<clsDispositivoHistorial>>
 
+    @GET("apiGetHoras.php")
+    fun obtenerHorasOcupadas(
+        @Query("fecha") fecha: String
+    ): Call<List<String>>
     @FormUrlEncoded
     @POST("apiAgenda.php")
     fun agendarCita(

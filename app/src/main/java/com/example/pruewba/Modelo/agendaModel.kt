@@ -18,23 +18,25 @@ class agendaModel {
         apiService = retrofit.create(ifaceApiService::class.java)
     }
 
-    fun guardarCita(
-        nombreCitado: String,
-        aPaterno: String,
-        aMaterno: String,
-        fechaCita: String,
-        horaCita: String,
-        detalles: String,
-        onResult: (isSuccess: Boolean, message: String) -> Unit
-    ) {
-        apiService.agendarCita(
-            nombreCitado = nombreCitado,
-            aPaterno = aPaterno,
-            aMaterno = aMaterno,
-            fechaCita = fechaCita,
-            horaCita = horaCita,
-            detalles = detalles
-        ).enqueue(object : Callback<List<clsDatosRespuesta>> {
+    // NUEVO: Obtener horas
+    fun obtenerHorasOcupadas(fecha: String, onResult: (horasOcupadas: List<String>?) -> Unit) {
+        apiService.obtenerHorasOcupadas(fecha).enqueue(object : Callback<List<String>> {
+            override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+                if (response.isSuccessful) {
+                    onResult(response.body())
+                } else {
+                    onResult(emptyList())
+                }
+            }
+            override fun onFailure(call: Call<List<String>>, t: Throwable) {
+                onResult(emptyList()) // En caso de error, asumimos que no hay ocupadas para no bloquear, o podrías manejar el error.
+            }
+        })
+    }
+
+    // ... (Tu método guardarCita existente sigue igual) ...
+    fun guardarCita(nombreCitado: String, aPaterno: String, aMaterno: String, fechaCita: String, horaCita: String, detalles: String, onResult: (isSuccess: Boolean, message: String) -> Unit) {
+        apiService.agendarCita(nombreCitado, aPaterno, aMaterno, fechaCita, horaCita, detalles).enqueue(object : Callback<List<clsDatosRespuesta>> {
             override fun onResponse(call: Call<List<clsDatosRespuesta>>, response: Response<List<clsDatosRespuesta>>) {
                 if (response.isSuccessful) {
                     val respuesta = response.body()?.firstOrNull()
@@ -45,7 +47,6 @@ class agendaModel {
                     onResult(false, "Error de servidor (${response.code()}).")
                 }
             }
-
             override fun onFailure(call: Call<List<clsDatosRespuesta>>, t: Throwable) {
                 onResult(false, "Error de conexión: ${t.message}")
             }
