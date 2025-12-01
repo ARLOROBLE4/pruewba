@@ -13,52 +13,60 @@
         android:layout_width="477dp"
         android:layout_height="87dp"
         android:background="#000000"
+        android:contentDescription="TODO"
         android:src="@drawable/logopcstatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
 
     <Button
         android:id="@+id/btnBvnInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="14dp"
         android:text="@string/btnBvnInicio"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
+        app:layout_constraintEnd_toStartOf="@+id/btnBvnServicios"
+        app:layout_constraintStart_toStartOf="@+id/imgMainlogo"
+        tools:ignore="MissingConstraints,TextSizeCheck"
+        tools:layout_editor_absoluteY="99dp" />
 
     <Button
         android:id="@+id/btnBvnServicios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="12dp"
         android:text="@string/btnBvnServicios"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBvnConsulta"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toEndOf="@+id/btnBvnInicio"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/btnBvnConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/btnBvnConsulta"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo" />
+        app:layout_constraintStart_toEndOf="@+id/btnBvnServicios"
+        tools:ignore="MissingConstraints,TextSizeCheck"
+        tools:layout_editor_absoluteY="99dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -67,6 +75,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -115,26 +124,31 @@
         android:id="@+id/btnCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="4dp"
         android:text="Cerrar sesion"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
         android:layout_height="247dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="45dp"
+        android:contentDescription="TODO"
+        app:circularflow_defaultRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnServicios"
         app:srcCompat="@drawable/logo_empresa_pcextreme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
