@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E1E1E">
 
@@ -11,7 +11,7 @@
         android:id="@+id/imgCltLogo4"
         android:layout_width="477dp"
         android:layout_height="87dp"
-        android:background="#040404"
+        android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,55 +19,71 @@
 
     <Button
         android:id="@+id/btnConInicio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="89dp"
+        android:layout_height="43dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
         android:text="@string/btnBvnInicio"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnConPerfil3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCltLogo4" />
 
     <Button
         android:id="@+id/btnConPerfil3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
+        android:layout_width="112dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
         android:text="@string/btnBvnServicios"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnConConsulta3"
         app:layout_constraintStart_toEndOf="@+id/btnConInicio3"
         app:layout_constraintTop_toBottomOf="@+id/imgCltLogo4" />
 
     <Button
         android:id="@+id/btnConConsulta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="171dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/btnBvnConsulta"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnConPerfil3"
         app:layout_constraintTop_toBottomOf="@+id/imgCltLogo4" />
+
+    <TextView
+        android:id="@+id/txtConInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="MIS EQUIPOS"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConPerfil3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvHistorial"
-        android:layout_width="409dp"
-        android:layout_height="630dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConInfo2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

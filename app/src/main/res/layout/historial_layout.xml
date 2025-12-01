@@ -4,118 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
     android:background="#1E1E1E">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="398dp"
-        android:layout_height="279dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="13dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="408dp"
-            android:layout_height="match_parent"
-            android:background="#03A9F4">
-
-            <TextView
-                android:id="@+id/txtModelo"
-                android:layout_width="190dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="40dp"
-                android:text=""
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txtMarca"
-                android:layout_width="190dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:text=""
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/txtModelo" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="148dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/txtHstEstado"
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-            <TextView
-                android:id="@+id/txtEstado"
-                android:layout_width="190dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="11dp"
-                android:text=""
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/txtMarca" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#FFFFFF">
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="148dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/txtHstModelo"
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/txtModelo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Modelo Ejemplo"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView12" />
+
+            <TextView
                 android:id="@+id/textView13"
-                android:layout_width="148dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/txtHstMarca"
-                android:textColor="@color/texto"
-                android:textSize="18sp"
-                android:textStyle="normal"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/txtModelo" />
+
+            <TextView
+                android:id="@+id/txtMarca"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Marca Ejemplo"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/txtHstEstado"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtMarca" />
+
+            <TextView
+                android:id="@+id/txtEstado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Estado Ejemplo"
+                android:textColor="@color/colorBotones"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView10" />
 
             <Button
                 android:id="@+id/btnVerMas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="132dp"
-                android:layout_marginBottom="17dp"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/btnVerMas"
-                android:textColor="@color/texto"
-                android:textSize="16dp"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
                 app:backgroundTint="@color/colorBotones"
                 app:cornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtEstado" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
