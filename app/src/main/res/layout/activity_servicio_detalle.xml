@@ -6,42 +6,6 @@
     android:layout_height="match_parent"
     android:background="#1E1E1E">
 
-    <TextView
-        android:id="@+id/txtSrvDescripcion"
-        android:layout_width="325dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="44dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSrvTitulo" />
-
-    <ImageView
-        android:id="@+id/imgSrvServicio"
-        android:layout_width="156dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="144dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSrvServicios"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/txtSrvTitulo"
-        android:layout_width="282dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="65dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgSrvServicio" />
-
     <ImageView
         android:id="@+id/imgRegistroLogo"
         android:layout_width="477dp"
@@ -107,5 +71,35 @@
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgSrvServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSrvInicio"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtSrvTitulo"
+        android:layout_width="169dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/imgSrvServicio"
+        app:layout_constraintTop_toBottomOf="@+id/btnSrvServicios" />
+
+    <TextView
+        android:id="@+id/txtSrvDescripcion"
+        android:layout_width="181dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="26dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/imgSrvServicio"
+        app:layout_constraintTop_toBottomOf="@+id/txtSrvTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

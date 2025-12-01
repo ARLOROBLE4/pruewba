@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,69 +8,73 @@
     android:background="#1E1E1E">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="397dp"
-        android:layout_height="287dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#2196F3">
-
-            <TextView
-                android:id="@+id/txtInfoServicio"
-                android:layout_width="225dp"
-                android:layout_height="101dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:text=""
-                android:textColor="@color/texto"
-                android:textSize="20sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/imgServicio"
-                app:layout_constraintTop_toBottomOf="@+id/txtServicio" />
-
-            <TextView
-                android:id="@+id/txtServicio"
-                android:layout_width="223dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="20dp"
-                android:text=""
-                android:textColor="@color/texto"
-                android:textSize="20sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/imgServicio"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:background="#FFFFFF">
 
             <ImageView
                 android:id="@+id/imgServicio"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
+                android:layout_width="153dp"
+                android:layout_height="149dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txtServicio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Título Servicio"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgServicio" />
+
+            <TextView
+                android:id="@+id/txtInfoServicio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:text="Descripción del servicio..."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtServicio" />
 
             <Button
                 android:id="@+id/btnAgendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/txtBnvAgendar"
                 android:textColor="@color/texto"
-                android:textSize="16dp"
                 app:backgroundTint="@color/colorBotones"
-                app:cornerRadius="8dp"
+                app:cornerRadius="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtInfoServicio" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

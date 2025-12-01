@@ -51,9 +51,9 @@ class ServicioDetalle : AppCompatActivity() {
         txtSrvDescripcion = findViewById(R.id.txtSrvDescripcion)
         btnSrvAgendar = findViewById(R.id.btnSrvAgendar)
 
-        btnSrvInicio = findViewById(R.id.btnSrvInicio)
-        btnSrvServicios = findViewById(R.id.btnSrvServicios)
-        btnSrvConsulta = findViewById(R.id.btnSrvConsulta)
+        btnSrvInicio = findViewById(R.id.btnBvnInicio)
+        btnSrvServicios = findViewById(R.id.btnBvnServicios)
+        btnSrvConsulta = findViewById(R.id.btnBvnConsulta)
 
         // 3. Obtener datos del Intent
         val servicioTitulo = intent.getStringExtra("titulo")

@@ -39,9 +39,9 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
 
         // 1. Mapeo de vistas
         rcvServicios = findViewById(R.id.rcvServicios)
-        btnBvnInicio2 = findViewById(R.id.btnBvnInicio2)
-        btnBvnServicios2 = findViewById(R.id.btnBvnServicios2)
-        btnBvnConsulta2 = findViewById(R.id.btnBvnConsulta2)
+        btnBvnInicio2 = findViewById(R.id.btnBvnInicio)
+        btnBvnServicios2 = findViewById(R.id.btnBvnServicios)
+        btnBvnConsulta2 = findViewById(R.id.btnBvnConsulta)
 
         // 2. Inicializar Presenter y SessionManager
         sessionManager = SesionManager(this)

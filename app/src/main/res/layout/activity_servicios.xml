@@ -8,67 +8,73 @@
     android:background="#1E1E1E">
 
     <ImageView
-        android:id="@+id/imgMainlogo2"
+        android:id="@+id/imgMainlogo"
         android:layout_width="477dp"
         android:layout_height="87dp"
         android:background="#000000"
+        android:contentDescription="TODO"
         android:src="@drawable/logopcstatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds" />
 
     <Button
-        android:id="@+id/btnBvnInicio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/btnBvnInicio"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
-        app:backgroundTint="@color/colorBotones"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo2" />
-
-    <Button
-        android:id="@+id/btnBvnServicios2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/btnBvnServicios"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
-        app:backgroundTint="@color/colorBotones"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toEndOf="@+id/btnBvnInicio2"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo2" />
-
-    <Button
-        android:id="@+id/btnBvnConsulta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="12dp"
+        android:id="@+id/btnBvnConsulta"
+        android:layout_width="171dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/btnBvnConsulta"
-        android:textColor="@color/texto"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:backgroundTint="@color/colorBotones"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo2" />
+        app:layout_constraintStart_toEndOf="@+id/btnBvnServicios"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <Button
+        android:id="@+id/btnBvnServicios"
+        android:layout_width="112dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btnBvnServicios"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBvnConsulta"
+        app:layout_constraintStart_toEndOf="@+id/btnBvnInicio"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/btnBvnInicio"
+        android:layout_width="89dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:text="@string/btnBvnInicio"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:backgroundTint="@color/colorBotones"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBvnServicios"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMainlogo"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvServicios"
-        android:layout_width="385dp"
-        android:layout_height="558dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBvnInicio"
+        android:layout_marginTop="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
