@@ -16,7 +16,6 @@ import com.example.pruewba.R
 
 class ConsultaDetalle : AppCompatActivity() {
 
-    // ... Vistas ...
     private lateinit var txtCltNumSerie: TextView
     private lateinit var txtCltModelo: TextView
     private lateinit var txtCltMarca: TextView

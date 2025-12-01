@@ -30,6 +30,6 @@ class ServiciosPresenter(private val modelo: ServiciosModel) : ServiciosContract
     }
 
     override fun handleAgendarClick(servicio: clsServicio) {
-        view?.navigateToAgendaScreen(servicio) // Navega a Agenda.kt
+        view?.navigateToAgendaScreen(servicio)
     }
 }

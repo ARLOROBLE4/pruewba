@@ -15,7 +15,6 @@ import com.example.pruewba.R
 class ServiciosAdapter(
     private val context: Context,
     private val listaServicios: List<clsServicio>,
-    // Eliminamos el listener general de la tarjeta, solo dejamos el del botón
     private val onAgendarClickListener: (clsServicio) -> Unit
 ) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
 
@@ -49,10 +48,6 @@ class ServiciosAdapter(
             .placeholder(R.drawable.logopcstatus)
             .error(R.drawable.logopcstatus)
             .into(holder.imgServicio)
-
-        // ELIMINADO: holder.itemView.setOnClickListener { ... }
-        // Ya no hay acción al hacer clic en la tarjeta vacía.
-
         // 2. Manejar Clic SOLO en el BOTÓN AGENDAR
         holder.btnAgendar.setOnClickListener {
             onAgendarClickListener(servicio)

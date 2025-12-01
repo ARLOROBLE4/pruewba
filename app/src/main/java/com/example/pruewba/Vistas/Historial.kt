@@ -59,7 +59,7 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         }
     }
 
-    // MANTENEMOS ESTO: Recarga los datos al entrar o volver a la app
+    // Recarga los datos al entrar o volver a la app
     override fun onResume() {
         super.onResume()
         presenter.loadUserHistorial()

@@ -29,12 +29,10 @@ class agendaModel {
                 }
             }
             override fun onFailure(call: Call<List<String>>, t: Throwable) {
-                onResult(emptyList()) // En caso de error, asumimos que no hay ocupadas para no bloquear, o podrías manejar el error.
+                onResult(emptyList())
             }
         })
     }
-
-    // ... (Tu método guardarCita existente sigue igual) ...
     fun guardarCita(nombreCitado: String, aPaterno: String, aMaterno: String, fechaCita: String, horaCita: String, detalles: String, onResult: (isSuccess: Boolean, message: String) -> Unit) {
         apiService.agendarCita(nombreCitado, aPaterno, aMaterno, fechaCita, horaCita, detalles).enqueue(object : Callback<List<clsDatosRespuesta>> {
             override fun onResponse(call: Call<List<clsDatosRespuesta>>, response: Response<List<clsDatosRespuesta>>) {

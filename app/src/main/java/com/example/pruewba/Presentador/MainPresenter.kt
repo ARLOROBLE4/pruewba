@@ -17,14 +17,10 @@ class MainPresenter(
     override fun detachView() {
         this.view = null
     }
-
-    // Lógica para decidir a dónde ir según la sesión
     override fun handleConsultaEquipoClick() {
         if (sessionManager.isLoggedIn()) {
-            // Si la sesión está activa, ir a Historial
             view?.navigateToHistorialScreen()
         } else {
-            // Si no está activa, ir a Login
             view?.navigateToLoginScreen()
         }
     }

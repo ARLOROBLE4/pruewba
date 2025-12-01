@@ -5,11 +5,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import com.example.pruewba.Modelo.FCMModel
 import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.Vistas.Historial
@@ -28,7 +26,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d(TAG, "Mensaje recibido de: ${remoteMessage.from}")
 
-        // 🛑 LÓGICA DE SESIÓN: Solo procesar si el usuario está logueado
+        // LÓGICA DE SESIÓN: Solo procesar si el usuario está logueado
         val sessionManager = SesionManager(applicationContext)
         if (sessionManager.isLoggedIn()) {
             remoteMessage.notification?.let {
@@ -71,17 +69,17 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val channelId = getString(R.string.default_notification_channel_id)
 
-        // Usamos BitmapFactory para el logo grande si quieres mantenerlo
-        val largeIconBitmap = android.graphics.BitmapFactory.decodeResource(resources, R.drawable.logopcstatus)
+        val largeIconBitmap = android.graphics.BitmapFactory.decodeResource(resources, R.drawable.logo)
 
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_stat_notificacion) // Tu icono blanco
+            .setSmallIcon(R.drawable.ic_notification_logo)
             .setColor(androidx.core.content.ContextCompat.getColor(this, R.color.color_corporativo))
-            .setLargeIcon(largeIconBitmap) // Tu logo a color
+            .setLargeIcon(largeIconBitmap)
             .setContentTitle(title ?: "PC Status Update")
             .setContentText(body)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -94,7 +92,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             )
             notificationManager.createNotificationChannel(channel)
         }
-
         notificationManager.notify(0, notificationBuilder.build())
     }
 }

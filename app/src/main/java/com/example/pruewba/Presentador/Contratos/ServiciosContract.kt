@@ -7,14 +7,14 @@ interface ServiciosContract {
         fun displayServices(servicios: List<clsServicio>)
         fun showFetchServicesError(message: String)
         fun navigateToServiceDetail(servicio: clsServicio)
-        fun navigateToAgendaScreen(servicio: clsServicio) // Para el botón Agendar
+        fun navigateToAgendaScreen(servicio: clsServicio)
     }
 
     interface Presentador {
         fun attachView(view: View)
         fun detachView()
         fun loadServices()
-        fun handleServiceClick(servicio: clsServicio) // Clic en el ítem completo
-        fun handleAgendarClick(servicio: clsServicio) // Clic en el botón Agendar
+        fun handleServiceClick(servicio: clsServicio)
+        fun handleAgendarClick(servicio: clsServicio)
     }
 }

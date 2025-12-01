@@ -76,7 +76,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
     }
 
     override fun displayServices(servicios: List<clsServicio>) {
-        // CORRECCIÓN AQUÍ: Se eliminó el parámetro onServiceClickListener
         val adapter = ServiciosAdapter(
             context = this,
             listaServicios = servicios,
@@ -91,8 +90,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         Toast.makeText(this, "Error al cargar servicios: $message", Toast.LENGTH_LONG).show()
     }
 
-    // Este método ya no se invocará desde la lista, pero se deja por si el Presenter lo requiere en el futuro
-    // o puedes borrarlo si limpias el contrato.
     override fun navigateToServiceDetail(servicio: clsServicio) {
         // Código desactivado visualmente desde el adaptador
         val intent = Intent(this, ServicioDetalle::class.java).apply {

@@ -14,7 +14,6 @@ class HistorialPresenter(
 
     override fun attachView(view: HistorialContract.View) {
         this.view = view
-        // No cargamos aquí automáticamente, dejamos que el onResume de la vista lo haga
     }
 
     override fun detachView() {
@@ -28,11 +27,8 @@ class HistorialPresenter(
             view?.showLoadingError("Error de sesión. Por favor, vuelve a ingresar.")
             return
         }
-
-        // Llamada al modelo (Asumiendo que ya actualizaste el modelo para aceptar timestamp)
-        // Si tu modelo aún no lo acepta, usa solo `userId`
         model.obtenerHistorial(userId) { dispositivos, errorMessage ->
-            if (view == null) return@obtenerHistorial // Evitar crashes si la vista se cerró
+            if (view == null) return@obtenerHistorial
 
             if (dispositivos != null) {
                 view?.displayHistorial(dispositivos)

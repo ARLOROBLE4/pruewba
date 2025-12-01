@@ -9,8 +9,6 @@ interface AgendaContract {
         fun navigateBackToServices()
         fun getDatosAgendamiento(): Map<String, String>
         fun getServicioTitulo(): String
-
-        // NUEVO: Método para llenar el Spinner
         fun showAvailableHours(horas: List<String>)
     }
 
@@ -18,8 +16,6 @@ interface AgendaContract {
         fun attachView(view: View)
         fun detachView()
         fun handleGuardarCitaClick()
-
-        // NUEVO: Método para solicitar carga de horas
         fun loadAvailableHours(fecha: String)
     }
 }

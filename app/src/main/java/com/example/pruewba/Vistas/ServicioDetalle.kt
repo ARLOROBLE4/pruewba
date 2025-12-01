@@ -11,10 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
-import com.example.pruewba.Modelo.SesionManager // 🛑 Importar SesionManager
+import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.R
 
-// Esta Activity solo recibe datos del Intent, no necesita Contrato ni Presenter
 class ServicioDetalle : AppCompatActivity() {
 
     private lateinit var imgSrvServicio: ImageView
@@ -73,7 +72,7 @@ class ServicioDetalle : AppCompatActivity() {
 
         // Botón Agendar
         btnSrvAgendar.setOnClickListener {
-            // Redirige a Agenda (similar a Servicios.kt)
+            // Redirige a Agenda
             val intent = Intent(this, Agenda::class.java).apply {
                 putExtra("servicio_id", servicioId)
                 putExtra("servicio_titulo", servicioTitulo)
