@@ -90,17 +90,6 @@ class Servicios : AppCompatActivity(), ServiciosContract.View {
         Toast.makeText(this, "Error al cargar servicios: $message", Toast.LENGTH_LONG).show()
     }
 
-    override fun navigateToServiceDetail(servicio: clsServicio) {
-        // Código desactivado visualmente desde el adaptador
-        val intent = Intent(this, ServicioDetalle::class.java).apply {
-            putExtra("id", servicio.id)
-            putExtra("titulo", servicio.titulo)
-            putExtra("descripcion", servicio.descripcion)
-            putExtra("imagen", servicio.imagen)
-        }
-        startActivity(intent)
-    }
-
     override fun navigateToAgendaScreen(servicio: clsServicio) {
         val intent = Intent(this, Agenda::class.java).apply {
             putExtra("servicio_id", servicio.id)

@@ -25,10 +25,6 @@ class ServiciosPresenter(private val modelo: ServiciosModel) : ServiciosContract
         }
     }
 
-    override fun handleServiceClick(servicio: clsServicio) {
-        view?.navigateToServiceDetail(servicio)
-    }
-
     override fun handleAgendarClick(servicio: clsServicio) {
         view?.navigateToAgendaScreen(servicio)
     }

@@ -27,11 +27,7 @@
         </activity>
         <activity android:name=".Vistas.Login"
             android:exported="false"/>
-        <activity android:name=".Vistas.Consulta"
-            android:exported="false"/>
         <activity android:name=".Vistas.Servicios"
-            android:exported="false"/>
-        <activity android:name=".Vistas.ServicioDetalle"
             android:exported="false"/>
         <activity android:name=".Vistas.Agenda"
             android:exported="false"/>
