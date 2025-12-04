@@ -7,12 +7,12 @@ import org.junit.Before
 import org.junit.Test
 
 /**
- * PRUEBAS UNITARIAS PARA EL FORMULARIO DE AGENDA realizadas por Gabriel Gámez v2.0 (debido a que cambió la versión de la aplicación)
+ * PRUEBAS UNITARIAS PARA EL FORMULARIO DE AGENDA realizadas por Gabriel Gámez v2.1 (se agregó el telefono al formulario)
  * Pruebas realizadas:
  * 1.- Validación de datos faltantes: En esta prueba simulamos un intento de envío de campos vacíos
  * el sistema deberá responder un mensaje al usuario indicandole que le hacen falta ingresar datos
  * por ende este mismo no debe llamar al modelo.
- * 2.- "Happy Path" : En esta prueba se simula un intento de envío de campos llenos con su respectiva
+ * 2.- "Happy Path" : En esta prueba se simula un intento de envío de campos llenos con su respectivo tipo e
  * información al mokcs (simulador de servidor) respondiendo "CORRECTO" y el sistema debe guardar con exito
  * y debe llamar al modelo e inicializar el presentador y la vista
  * 3.- Manejo de error en el servidor: En esta prueba se simula un error en el servidor (un fallo de conexión por ejemplo)
@@ -21,7 +21,7 @@ import org.junit.Test
  * 4.- Validación de falta de hora: En esta prueba simulamos un intento de envío de datos vacíos (Hora)
  * ejecutando el clic "Guardar cita" y el sistema debe mostrar el mensaje adecuado.
  * ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- * ////////////////// Prueba realizada: 03/12/2025 11:59 P.M. /////////////////////////////////////////////////////////////////////////////
+ * ////////////////// Prueba realizada: 04/12/2025 12:37 P.M. /////////////////////////////////////////////////////////////////////////////
  * ///////////////// Resultado: CORRECTO - 4/4 tests passed  ////////////////////////////////////////////////////////////////////////////
  * //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  */
@@ -46,9 +46,10 @@ class AgendaPresenterTest {
         println("--------------------------------------------------")
         println("INICIO TEST: Validacion de datos faltantes (Nombre vacio)")
 
-        // Escenario
+        // Escenario: Nombre vacío, pero teléfono y fecha presentes
         val datosIncompletos = mapOf(
             "nombreCitado" to "", // VACÍO
+            "telefono" to "5551234567", // NUEVO CAMPO
             "fechaCita" to "01/01/2025",
             "horaCita" to "10:00"
         )
@@ -61,10 +62,12 @@ class AgendaPresenterTest {
 
         // Verificación
         println("PASO 3: Verificando resultados...")
-        verify { viewMock.showToast("Faltan datos (Nombre o Fecha).") }
+        // Actualizado mensaje esperado para incluir "Teléfono"
+        verify { viewMock.showToast("Faltan datos (Nombre, Teléfono o Fecha).") }
         println("   -> CONFIRMADO: Se mostro el mensaje 'Faltan datos'.")
 
-        verify(exactly = 0) { modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any()) }
+        // Actualizado a 8 argumentos (7 datos + callback)
+        verify(exactly = 0) { modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any(), any()) }
         println("   -> CONFIRMADO: El modelo NO fue llamado.")
         println("FIN TEST: Validacion de datos faltantes exitosa.")
     }
@@ -75,9 +78,10 @@ class AgendaPresenterTest {
         println("--------------------------------------------------")
         println("INICIO TEST: Validacion de falta de hora")
 
-        // Escenario
+        // Escenario: Datos correctos pero hora vacía
         val datosSinHora = mapOf(
             "nombreCitado" to "Cliente Prueba",
+            "telefono" to "5551234567", // NUEVO CAMPO
             "fechaCita" to "01/01/2025",
             "horaCita" to "" // VACÍO
         )
@@ -92,7 +96,8 @@ class AgendaPresenterTest {
         verify { viewMock.showToast("Por favor selecciona un horario disponible.") }
         println("   -> CONFIRMADO: Se mostro el mensaje de seleccionar horario.")
 
-        verify(exactly = 0) { modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any()) }
+        // Actualizado a 8 argumentos
+        verify(exactly = 0) { modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any(), any()) }
         println("FIN TEST: Validacion de hora exitosa.")
     }
 
@@ -102,11 +107,12 @@ class AgendaPresenterTest {
         println("--------------------------------------------------")
         println("INICIO TEST: Guardado de cita exitoso (Happy Path)")
 
-        // Escenario
+        // Escenario: Todos los datos completos incluyendo teléfono
         val datosCompletos = mapOf(
             "nombreCitado" to "Juan Perez",
             "aPaterno" to "Lopez",
             "aMaterno" to "Gomez",
+            "telefono" to "5551234567", // NUEVO CAMPO
             "fechaCita" to "01/01/2025",
             "horaCita" to "10:00",
             "detalles" to "Formateo"
@@ -114,8 +120,9 @@ class AgendaPresenterTest {
         every { viewMock.getDatosAgendamiento() } returns datosCompletos
 
         // Simulación del Servidor
+        // IMPORTANTE: Se agregó un `any()` extra para el teléfono (ahora son 7 any() antes del lambda)
         every {
-            modelMock.guardarCita(any(), any(), any(), any(), any(), any(), captureLambda())
+            modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any(), captureLambda())
         } answers {
             println("   -> MOCK: El servidor falso ha recibido la solicitud.")
             val callback = lastArg<(Boolean, String) -> Unit>()
@@ -156,14 +163,16 @@ class AgendaPresenterTest {
 
         val datosCompletos = mapOf(
             "nombreCitado" to "Juan Perez",
+            "telefono" to "5551234567", // NUEVO CAMPO
             "fechaCita" to "01/01/2025",
             "horaCita" to "10:00"
         )
         every { viewMock.getDatosAgendamiento() } returns datosCompletos
 
         // Simulación de Error
+        // Actualizado a 8 argumentos
         every {
-            modelMock.guardarCita(any(), any(), any(), any(), any(), any(), captureLambda())
+            modelMock.guardarCita(any(), any(), any(), any(), any(), any(), any(), captureLambda())
         } answers {
             println("   -> MOCK: El servidor falso ha recibido la solicitud.")
             val callback = lastArg<(Boolean, String) -> Unit>()
