@@ -36,7 +36,8 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
     private lateinit var agnAPaterno: EditText
     private lateinit var agnAMaterno: EditText
     private lateinit var edtFechaCita: EditText
-    private lateinit var spnHora: Spinner // CAMBIO: Ahora es Spinner
+    private lateinit var edtTelefono: EditText
+    private lateinit var spnHora: Spinner
     private lateinit var agnDetalles: EditText
     private lateinit var btnGuardarCita: Button
 
@@ -82,8 +83,9 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         agnNombre = findViewById(R.id.agnNombre)
         agnAPaterno = findViewById(R.id.agnAPaterno)
         agnAMaterno = findViewById(R.id.agnAMaterno)
+        edtTelefono = findViewById(R.id.edtTelefono)
         edtFechaCita = findViewById(R.id.edtFechaCita)
-        spnHora = findViewById(R.id.spnHora) // Mapeo del Spinner
+        spnHora = findViewById(R.id.spnHora)
         btnGuardarCita = findViewById(R.id.btnGuardarCita)
         agnDetalles = findViewById(R.id.agnDetalles)
         btnDictarDetalles = findViewById(R.id.btnDictarDetalles)
@@ -215,6 +217,7 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
         agnNombre.setText("")
         agnAPaterno.setText("")
         agnAMaterno.setText("")
+        edtTelefono.setText("")
         edtFechaCita.setText("")
         // spnHora no necesita limpiarse, se actualizará con la nueva fecha
         agnDetalles.setText("")
@@ -238,8 +241,9 @@ class Agenda : AppCompatActivity(), AgendaContract.View {
             "nombreCitado" to agnNombre.text.toString(),
             "aPaterno" to agnAPaterno.text.toString(),
             "aMaterno" to agnAMaterno.text.toString(),
+            "telefono" to edtTelefono.text.toString(),
             "fechaCita" to edtFechaCita.text.toString(),
-            "horaCita" to horaSeleccionada, // Aquí enviamos la hora del Spinner
+            "horaCita" to horaSeleccionada,
             "detalles" to agnDetalles.text.toString()
         )
     }

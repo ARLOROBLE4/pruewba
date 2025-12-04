@@ -33,8 +33,8 @@ class agendaModel {
             }
         })
     }
-    fun guardarCita(nombreCitado: String, aPaterno: String, aMaterno: String, fechaCita: String, horaCita: String, detalles: String, onResult: (isSuccess: Boolean, message: String) -> Unit) {
-        apiService.agendarCita(nombreCitado, aPaterno, aMaterno, fechaCita, horaCita, detalles).enqueue(object : Callback<List<clsDatosRespuesta>> {
+    fun guardarCita(nombreCitado: String, aPaterno: String, aMaterno: String,telefono: String, fechaCita: String, horaCita: String, detalles: String, onResult: (isSuccess: Boolean, message: String) -> Unit) {
+        apiService.agendarCita(nombreCitado, aPaterno, aMaterno,telefono, fechaCita, horaCita, detalles).enqueue(object : Callback<List<clsDatosRespuesta>> {
             override fun onResponse(call: Call<List<clsDatosRespuesta>>, response: Response<List<clsDatosRespuesta>>) {
                 if (response.isSuccessful) {
                     val respuesta = response.body()?.firstOrNull()

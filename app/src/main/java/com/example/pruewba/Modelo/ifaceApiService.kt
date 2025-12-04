@@ -39,6 +39,7 @@ interface ifaceApiService {
         @Field("nombreCitado") nombreCitado: String,
         @Field("aPaterno") aPaterno: String,
         @Field("aMaterno") aMaterno: String,
+        @Field("telefono") telefono: String,
         @Field("fechaCita") fechaCita: String,
         @Field("horaCita") horaCita: String,
         @Field("detalles") detalles: String

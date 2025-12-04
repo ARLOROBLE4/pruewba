@@ -45,12 +45,13 @@ class AgendaPresenter(
         val nombreCitado = datos["nombreCitado"] ?: ""
         val aPaterno = datos["aPaterno"] ?: ""
         val aMaterno = datos["aMaterno"] ?: ""
+        val telefono = datos["telefono"] ?: ""
         val fechaCita = datos["fechaCita"] ?: ""
         val horaCita = datos["horaCita"] ?: ""
         val detalles = datos["detalles"] ?: ""
 
-        if (nombreCitado.isBlank() || fechaCita.isBlank()) {
-            view.showToast("Faltan datos (Nombre o Fecha).")
+        if (nombreCitado.isBlank() || fechaCita.isBlank() || telefono.isBlank()) {
+            view.showToast("Faltan datos (Nombre, Teléfono o Fecha).")
             return
         }
 
@@ -65,6 +66,7 @@ class AgendaPresenter(
             nombreCitado = nombreCitado,
             aPaterno = aPaterno,
             aMaterno = aMaterno,
+            telefono = telefono,
             fechaCita = fechaCita,
             horaCita = horaCita,
             detalles = detalles
