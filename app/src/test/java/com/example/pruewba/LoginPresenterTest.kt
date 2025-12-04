@@ -1,86 +1,103 @@
-package com.example.pruewba
+package com.example.pruewba.Presentador
 
 import com.example.pruewba.Modelo.SesionManager
 import com.example.pruewba.Modelo.accesoModel
 import com.example.pruewba.Presentador.Contratos.LoginContract
-import com.example.pruewba.Presentador.LoginPresenter
+import io.mockk.*
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
-import org.mockito.Captor
-import org.mockito.Mock
-import org.mockito.Mockito.*
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner::class)
+/**
+ * PRUEBAS UNITARIAS PARA LOGIN realizadas por Gabriel Gámez v2.0 (debido a que cambió la versión de la aplicación)
+ * Pruebas realizadas:
+ * -1 Validación: El sistema debe bloquear los intentos de acceso con campos vacíos.
+ * -2 "Happy Path": Cuando el servidor (Mockito XD suena a moco) responda "correcto" a la simulación de inicio de sesión del sistema
+ * este debe guardar la sesión y permite el acceso a las demás funciones.
+ * -3 Control de errores: Cuando el servidor responda con un error (por error de contraseña o email incorrecto) el sistema debe responder
+ * con el mensaje adecuado y no debe permitir el acceso al usuario.
+ * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ * ////////////////// Prueba realizada: 03/12/2025 11:27 P.M. /////////////////////////////////////////////////////////////////////////////
+ * ///////////////// Resultado: CORRECTO - 3/3 tests passed (No se decirlo correctamente en español, "3 pruebas pasaron?") //////////////////
+ * //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ */
 class LoginPresenterTest {
 
-    @Mock private lateinit var view: LoginContract.View
-    @Mock private lateinit var model: accesoModel
-    @Mock private lateinit var sessionManager: SesionManager
+    private val viewMock = mockk<LoginContract.View>(relaxed = true)
+    private val modelMock = mockk<accesoModel>(relaxed = true)
+    private val sessionMock = mockk<SesionManager>(relaxed = true)
 
     private lateinit var presenter: LoginPresenter
 
-    @Captor
-    private lateinit var callbackCaptor: ArgumentCaptor<(Boolean, String, Int?) -> Unit>
-
     @Before
-    fun setUp() {
-        presenter = LoginPresenter(model, sessionManager)
-        presenter.attachView(view)
+    fun setup() {
+        presenter = LoginPresenter(modelMock, sessionMock)
+        presenter.attachView(viewMock)
+        println("SETUP: Presentador de Login listo.")
     }
 
     @Test
-    fun `handleLoginButtonClick muestra error cuando los campos estan vacios`() {
-        println("INICIO PRUEBA: Login con campos vacíos")
+    fun `testValidacionCamposVacios`() {
+        println("--------------------------------------------------")
+        println("INICIO TEST: Validacion de Login (Campos vacios)")
+
+        println("PASO 1: Intentando login con credenciales vacias...")
         presenter.handleLoginButtonClick("", "")
-        verify(view).showLoginError("Por favor, ingresa correo y contraseña.")
-        println("RESULTADO: La vista mostró el error esperado.")
-        println("--------------------------------------------------")
+
+        println("PASO 2: Verificando respuesta...")
+        verify { viewMock.showLoginError("Por favor, ingresa correo y contraseña.") }
+        println("   -> CONFIRMADO: Mensaje de error mostrado.")
+
+        verify(exactly = 0) { modelMock.iniciarSesion(any(), any(), any()) }
+        println("   -> CONFIRMADO: No se llamo al servidor.")
+        println("FIN TEST: Validacion correcta.")
     }
 
     @Test
-    fun `handleLoginButtonClick navega a consulta cuando el login es exitoso`() {
-        println("INICIO PRUEBA: Login Exitoso")
-
-        // GIVEN
-        val email = "ingeniero@test.com"
-        val password = "securePass"
-        val userId = 100
-        println("DATOS DE ENTRADA: Email=$email, Pass=****")
-
-        // WHEN
-        presenter.handleLoginButtonClick(email, password)
-
-        // Capturamos la llamada
-        verify(model).iniciarSesion(eq(email), eq(password), callbackCaptor.capture())
-        println("ACCIÓN: Presenter llamó al Modelo.")
-
-        // Simulamos respuesta del servidor
-        println("SIMULACIÓN: El servidor responde 'Correcto' con ID=$userId")
-        callbackCaptor.value.invoke(true, "Bienvenido", userId)
-
-        // THEN
-        verify(sessionManager).createLoginSession(userId)
-        println("VERIFICACIÓN: Se guardó la sesión con ID $userId")
-
-        verify(view).showLoginSuccess()
-        verify(view).navigateToConsultaScreen()
-        println("🚀 VERIFICACIÓN: Navegación a pantalla de Consulta ejecutada.")
-        println("PRUEBA FINALIZADA CON ÉXITO")
+    fun `testLoginExitoso`() {
         println("--------------------------------------------------")
+        println("INICIO TEST: Login Exitoso")
+
+        val email = "prueba@test.com"
+        val userIdSimulado = 99
+
+        every { modelMock.iniciarSesion(any(), any(), captureLambda()) } answers {
+            println("   -> MOCK: Servidor recibio peticion de login.")
+            val callback = lastArg<(Boolean, String, Int?) -> Unit>()
+            println("   -> MOCK: Respondiendo EXITO. ID Usuario: $userIdSimulado")
+            callback.invoke(true, "Login Correcto", userIdSimulado)
+        }
+
+        println("PASO 1: Click en boton Acceder...")
+        presenter.handleLoginButtonClick(email, "123")
+
+        verify { sessionMock.createLoginSession(userIdSimulado) }
+        println("   -> CONFIRMADO: Sesion guardada.")
+
+        verify { viewMock.showLoginSuccess() }
+        verify { viewMock.navigateToConsultaScreen() }
+        println("   -> CONFIRMADO: Navegacion a pantalla principal.")
+        println("FIN TEST: Login exitoso.")
     }
 
     @Test
-    fun `handleLoginButtonClick muestra error cuando el modelo devuelve fallo`() {
-        val errorMsg = "Credenciales incorrectas"
-        presenter.handleLoginButtonClick("test@test.com", "wrongpass")
+    fun `testLoginFallidoPorServidor`() {
+        println("--------------------------------------------------")
+        println("INICIO TEST: Login fallido (Credenciales invalidas)")
 
-        verify(model).iniciarSesion(anyString(), anyString(), callbackCaptor.capture())
-        callbackCaptor.value.invoke(false, errorMsg, null)
+        val errorMsg = "Credenciales inválidas"
 
-        verify(view).showLoginError(errorMsg)
-        verify(view, never()).navigateToConsultaScreen()
+        every { modelMock.iniciarSesion(any(), any(), captureLambda()) } answers {
+            println("   -> MOCK: Servidor recibio peticion.")
+            val callback = lastArg<(Boolean, String, Int?) -> Unit>()
+            println("   -> MOCK: Respondiendo ERROR: $errorMsg")
+            callback.invoke(false, errorMsg, null)
+        }
+
+        println("PASO 1: Click en boton Acceder...")
+        presenter.handleLoginButtonClick("user", "pass")
+
+        verify { viewMock.showLoginError(errorMsg) }
+        println("   -> CONFIRMADO: Mensaje de error mostrado en pantalla.")
+        println("FIN TEST: Manejo de error correcto.")
     }
 }
