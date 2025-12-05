@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PC Status</string>
     <string name="txtProyecto">PC Status</string>
-    <string name="btnVerMas">Ver Mas</string>
+    <string name="btnVerMas">Ver Más</string>
     <string name="btnBvnChat">Chat</string>
     <string name="btnRegistrar">Crear cuenta</string>
     <string name="btnLoguear">Ingresar</string>
@@ -26,7 +26,7 @@
     <string name="txtHstModelo">Modelo</string>
     <string name="txtHstMarca">Marca</string>
     <string name="txtHstEstado">Estado del equipo</string>
-    <string name="txtCltDiagnostico">Diagnostico</string>
+    <string name="txtCltDiagnostico">Diagnóstico</string>
     <string name="txtCltEstado">Estado del Equipo</string>
     <string name="txtCltDetalles">Detalles del equipo</string>
     <string name="txtCltCosto">Costo estimado</string>

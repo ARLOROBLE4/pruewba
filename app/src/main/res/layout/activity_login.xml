@@ -124,7 +124,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="29dp"
                 android:layout_marginEnd="20dp"
-                android:text="NOTA**: La siguiente informacion la encuentras en la parte inferior del ticket que se entregó en recepcion"
+                android:text="NOTA**: La siguiente información la encuentras en la parte inferior del ticket que se entregó en recepción"
                 android:textColor="#898686"
                 android:textSize="18dp"
                 android:textStyle="bold"
