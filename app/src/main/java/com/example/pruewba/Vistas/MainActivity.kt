@@ -1,7 +1,10 @@
 package com.example.pruewba.Vistas
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,7 +12,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.media3.common.MediaItem
@@ -45,6 +50,17 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var presenter: MainContract.Presentador
     private lateinit var sessionManager: SesionManager
 
+    // --- NUEVO: Lanzador para solicitar permiso de notificaciones ---
+    private val requestNotificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Toast.makeText(this, "Notificaciones habilitadas", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Sin permiso de notificaciones", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +72,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // --- NUEVO: Verificar permiso al iniciar la vista ---
+        checkNotificationPermission()
 
         // 1. Inicializar Vistas
         btnBvnServicios = findViewById(R.id.btnBvnServicios)
@@ -84,17 +103,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     // --- CICLO DE VIDA DEL VIDEO ---
-    // Es crucial liberar el player cuando la app no se ve para no consumir batería/memoria
-
     override fun onStart() {
         super.onStart()
-        // Si vienes de otra pantalla, recargar el video si es necesario
         presenter.loadInitialData()
     }
 
     override fun onStop() {
         super.onStop()
-        releasePlayer() // Liberar recursos al salir
+        releasePlayer()
     }
 
     private fun releasePlayer() {
@@ -187,6 +203,19 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
             exoPlayer?.prepare()
             exoPlayer?.playWhenReady = true
+        }
+    }
+
+    // --- NUEVO: Función lógica para verificar permisos ---
+    private fun checkNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
         }
     }
 }
