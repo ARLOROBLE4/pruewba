@@ -19,8 +19,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="330dp"
-        android:layout_height="484dp"
+        android:layout_width="332dp"
+        android:layout_height="461dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="158dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,62 +41,23 @@
                 android:layout_width="260dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="34dp"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="36dp"
                 android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hints"
                 android:hint="@string/edtLoginEmail"
                 android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgLoginIcono" />
-
-            <EditText
-                android:id="@+id/edtLoginPassword"
-                android:layout_width="259dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="20dp"
-                android:ems="10"
-                android:hint="@string/edtLoginPassword"
-                android:inputType="text"
-                android:password="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hints"
-                app:layout_constraintEnd_toEndOf="@+id/edtLoginEmail"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/edtLoginEmail"
-                app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
-
-            <Button
-                android:id="@+id/btnLoguear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:backgroundTint="@color/colorBotones"
-                android:text="@string/btnLoguear"
-                android:textColor="@color/texto"
-                app:cornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/edtLoginPassword"
-                app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
-
-            <ImageView
-                android:id="@+id/imgLoginIcono"
-                android:layout_width="161dp"
-                android:layout_height="182dp"
-                android:layout_marginStart="85dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="84dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/login" />
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <CheckBox
                 android:id="@+id/ckbPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="36dp"
                 android:text=""
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,14 +67,70 @@
                 android:id="@+id/btnRegresar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="61dp"
-                android:layout_marginTop="32dp"
-                android:text="Regresar"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorBotones"
+                android:text="Regresar"
                 android:textColor="@color/texto"
                 app:cornerRadius="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
+
+            <Button
+                android:id="@+id/btnLoguear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="@color/colorBotones"
+                android:text="@string/btnLoguear"
+                android:textColor="@color/texto"
+                app:cornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/edtLoginPassword"
+                app:layout_constraintTop_toBottomOf="@+id/edtLoginPassword" />
+
+            <EditText
+                android:id="@+id/edtLoginPassword"
+                android:layout_width="259dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/edtLoginPassword"
+                android:inputType="text"
+                android:password="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hints"
+                app:layout_constraintEnd_toEndOf="@+id/edtLoginEmail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edtLoginEmail"
+                app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
+
+            <ImageView
+                android:id="@+id/imgLoginIcono"
+                android:layout_width="142dp"
+                android:layout_height="133dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="84dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/login" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="294dp"
+                android:layout_height="66dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="20dp"
+                android:text="NOTA**: La siguiente informacion la encuentras en la parte inferior del ticket que se entregó en recepcion"
+                android:textColor="#898686"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgLoginIcono" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
