@@ -48,7 +48,7 @@ class ServiciosAdapter(
             .placeholder(R.drawable.logopcstatus)
             .error(R.drawable.logopcstatus)
             .into(holder.imgServicio)
-        // 2. Manejar Clic SOLO en el BOTÓN AGENDAR
+
         holder.btnAgendar.setOnClickListener {
             onAgendarClickListener(servicio)
         }

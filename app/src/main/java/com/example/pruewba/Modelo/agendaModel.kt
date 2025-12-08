@@ -18,7 +18,7 @@ class agendaModel {
         apiService = retrofit.create(ifaceApiService::class.java)
     }
 
-    // NUEVO: Obtener horas
+
     fun obtenerHorasOcupadas(fecha: String, onResult: (horasOcupadas: List<String>?) -> Unit) {
         apiService.obtenerHorasOcupadas(fecha).enqueue(object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {

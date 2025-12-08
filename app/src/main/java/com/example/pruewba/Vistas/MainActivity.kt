@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var presenter: MainContract.Presentador
     private lateinit var sessionManager: SesionManager
 
-    // --- NUEVO: Lanzador para solicitar permiso de notificaciones ---
+
     private val requestNotificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             insets
         }
 
-        // --- NUEVO: Verificar permiso al iniciar la vista ---
+
         checkNotificationPermission()
 
         // 1. Inicializar Vistas
@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    // --- NUEVO: Función lógica para verificar permisos ---
+    // Función lógica para verificar permisos ---
     private fun checkNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(

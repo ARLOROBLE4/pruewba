@@ -38,14 +38,12 @@ class MainPresenter(
         modeloInicio.obtenerDatosInicio { datos, errorMessage ->
             if (datos != null) {
                 view?.showDatosInicio(datos.titulo, datos.descripcion)
-                // Opcional: Si la BD trae el nombre del video, podrías usar datos.videoUrl
             } else {
                 view?.showDataError(errorMessage ?: "Error al cargar datos.")
             }
         }
 
         // 2. Cargar el video específico solicitado
-        // Concatenamos la URL base con el nombre del archivo
         val fullVideoUrl = BASE_VIDEO_URL + "videopresentacion.mp4"
         view?.loadVideo(fullVideoUrl)
     }

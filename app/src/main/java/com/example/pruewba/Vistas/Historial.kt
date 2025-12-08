@@ -55,7 +55,7 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         btnConInicio3.setOnClickListener { navigateToMainActivity() }
         btnConPerfil3.setOnClickListener { navigateToServiciosActivity() }
         btnConConsulta3.setOnClickListener {
-            // Ya estamos aquí
+
         }
     }
 
@@ -65,7 +65,7 @@ class Historial : AppCompatActivity(), HistorialContract.View {
         presenter.loadUserHistorial()
     }
 
-    // ELIMINAMOS onNewIntent y verificarIntentDeNotificacion complejos
+    // ELIMINA onNewIntent y verificarIntentDeNotificacion complejos
 
     override fun onDestroy() {
         presenter.detachView()
@@ -79,7 +79,6 @@ class Historial : AppCompatActivity(), HistorialContract.View {
             return
         }
 
-        // Adaptador simple sin IDs resaltados
         val adapter = HistorialAdapter(dispositivos) { dispositivo ->
             presenter.handleVerMasClick(dispositivo)
         }
